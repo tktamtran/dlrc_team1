@@ -1,0 +1,66 @@
+ISSUES:
+
+#####################
+Problem: lidars not working
+#####################
+try this:
+Lidar debugging
+Ssh into the raspberry pi
+ssh pi@10.250.144.4[robot#] (ip also on the side of the raspberry)
+Password:    rootroot1
+The lidars service is autostarted as a systemd service, following are a couple of helpful commands
+Check the status:        systemctl status lidar.service
+ If the status says active running but you don’t get any messages try to stop    the service and restart it manually
+ Check the status twice in a row and see if the corresponding process id (PID) changes. If it does, the service starts, fails and is the restarted. Try stopping the service and start the program it manually to narrow down the problem
+Stop the service:        systemctl stop lidar.service
+Start the service:        systemctl start lidar.service
+Start the program manually to see debug output:        ./code/start_lidar.sh
+ If the program shows a floating point exception the most likely cause is a buggy cable connection to one of the lidars. Initially the script starts by querying every single lidar over SPI, the number at which it stops can point you towards the correct cables
+ If the lidar initialization goes through but afterwards an out_of_range error is thrown the signal could not be registered to the address broker successfully. Try restarting the addr_broker on your machine and try again
+If you successfully debugged the problem just stop the manually started script and start the lidar.service. Check the status and confirm it’s running, then close the ssh connection
+################
+
+
+
+
+
+###################
+How to: display coordinates on .xpanda
+###################
+run ./x_panda
+in beige box, $ coordDisplay
+set length of axis as 0.30
+###################
+
+
+###################
+How to: change orientation of end-effector
+can also use the recompilation for other things, like changing virtual walls
+###################
+$ cd ~/git/sl/sl_panda/src/pyctl
+$ git pull
+then rebuild all the new files
+$ cd ~/git/sl/build
+$ make -j8 install
+$ cd ~/git/sl/build/sl_panda
+$ ./xpanda
+
+in another terminal tab:
+$ cd ~/git/sl/sl_panda/src/pyctl/examples
+$ workon dlrc
+($ pip install quaternion)
+$ python p2p_const_ori.py
+######################
+
+
+
+# to open simulator, cd ~/git/sl/build/sl_panda  $ ./xpanda
+
+don't forget .tolist() !!
+
+
+pgrep panda before leaving
+pkill PID or pkill panda, maybe use -9
+
+
+do not register franka_state yourself. there is only one socket/slot for that in the computer, and xrpanda will need that one slot to communicate its joint configs to the comptuer

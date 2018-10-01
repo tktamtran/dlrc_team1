@@ -1,0 +1,32 @@
+1. base env't: things you know to always exist; ex. table
+2. if LIDAR senses an object close to it, but based on its current joint configs, the nearby object is not itself, and therefore a foreign object
+3. keep it simple in beginning; e.g. work with static objects, and then progress to dynamic objects
+4. a mathematical mapping between joint configs => lidar msmts; to give us an idea of what an envt without objects and only itself is
+    - wcs with origin as robot base. we fill in the space that is occupied by the robot / list the coordinates occupied by the robot (list_points_robot)
+    - each of the lidar sensors have their own coordinate system. as they collect data, they generate surface samples / data points wrt to its own c.s.
+    - bc we know the joint configs, we also know the lidar origin wrt to the wcs origin
+    - therefore generate a projection matrix mapping lcs to wcs; lidar_data_pt * projection_matrix = data_point_in_wcs
+    - if data_point_in_wcs in list_points_robot: then robot has detected itself
+    - this is a non-learning approach
+    - pain in the ass to calibrate lidar and know its coordinates
+5. learn what the base envt is, and then anything that deviates from it, the robot learns that its a foreign object
+
+
+
+sensors have no overlap in info gathered, each have diff blind spots
+hence each sensor should be able to distinguish bw the 3 classes
+
+lidars can always change position
+only fixed is robot to lidar, but not lidar to envt
+
+the need to retrain the model when the lidars move
+
+calibrate the camera by using checkerboard
+then know how the camera relates to end effector
+then take msmts of robot itself
+camera views the lidars and determines the position of the lidars -> makes it less painful to calibrate 3 lidars
+
+if robot was capable of moving with zero tolerance, then could determine lidar axes
+
+
+if each lidar were to be capable to distinguish bw the 3 classes, would need prior info, as lidar only returns 1-D float which does not carry information in isolation

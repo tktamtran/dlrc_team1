@@ -1,0 +1,215 @@
+
+
+LIDAR CALIBRATION
+to follow the following parameter format
+T_j_l = np.zeros((4,4))
+T_j_l[0:3,2] = params[3:6]
+T_j_l[0:3,3] = params[:3]
+T_j_l[3,3] = 1
+
+
+lidar 6,7,8 on same joint 3
+lidar 5 on joint 4
+lidar 2,3,4 on same joint 5
+
+
+
+
+lidar 0 on joint 6
+[ 0.01807252  0.00734784  0.03238632 -0.09107123 -0.02269616  0.93559049]
+
+
+
+lidar 1 on joint 5
+[-0.05771941  0.06709518  0.01862359 -0.91828073  0.00871922  0.27674666]
+Linear least squares suggests an offset of [-0.05771941  0.06709518  0.01862359] (in meters, xyz)
+and rotation of [-0.91828073  0.00871922  0.27674666] (norm: 0.9591163823421448
+Residual norm: [0.00515299]
+sum of error 2.3250911024474297
+x[:6] [-0.05771941  0.06709518  0.01862359 -0.91828073  0.00871922  0.27674666]
+std_error 0.0014075354559838788
+
+percent that were outlier 547 2601 0.2103037293348712
+[-0.05722147  0.06772991  0.01825852 -0.91996184  0.0048846   0.28052113]
+Linear least squares suggests an offset of [-0.05722147  0.06772991  0.01825852] (in meters, xyz)
+and rotation of [-0.91996184  0.0048846   0.28052113] (norm: 0.9617929832492894
+Residual norm: []
+sum of error 0.7188884700061182
+
+
+
+
+lidar 2 on joint 5
+np.array([-0.00248239, 0.04914541, 0.05569643, 0.10166189, 0.0527037, 1.00976996])
+
+/home/dlrc1/measurements/20180925T1249030000.pkl
+[-0.00359566  0.06660305  0.05624735  0.11309117 -0.05526625  0.99773982]
+Linear least squares suggests an offset of [-0.00359566  0.06660305  0.05624735] (in meters, xyz)
+and rotation of [ 0.11309117 -0.05526625  0.99773982] (norm: 1.0056484058820847
+Residual norm: [0.00181269]
+sum of error 0.8796672803796722
+x[:6] [-0.00359566  0.06660305  0.05624735  0.11309117 -0.05526625  0.99773982]
+std_error 0.0011923595026168837
+
+percent that were outlier 250 1275 0.19607843137254902
+[-0.00355127  0.06895721  0.05603637  0.11639024 -0.08209581  1.0012679 ]
+Linear least squares suggests an offset of [-0.00355127  0.06895721  0.05603637] (in meters, xyz)
+and rotation of [ 0.11639024 -0.08209581  1.0012679 ] (norm: 1.0113475290196052
+Residual norm: []
+sum of error 0.14784203813285748
+
+
+
+lidar 3 on jt 5
+z -0.058 /home/dlrc1/measurements/20180925T1408000000.pkl
+[0.05837634 0.06860064 0.00909611 0.97177872 0.02883462 0.01135049]
+Linear least squares suggests an offset of [0.05837634 0.06860064 0.00909611] (in meters, xyz)
+and rotation of [0.97177872 0.02883462 0.01135049] (norm: 0.972272672651078
+Residual norm: [0.00789844]
+sum of error 2.70647552693487
+x[:6] [0.05837634 0.06860064 0.00909611 0.97177872 0.02883462 0.01135049]
+std_error 0.0016283037528983752
+
+percent that were outlier 451 2979 0.15139308492782813
+[0.05867845 0.06964604 0.00857767 0.97111269 0.02424949 0.01209417]
+Linear least squares suggests an offset of [0.05867845 0.06964604 0.00857767] (in meters, xyz)
+and rotation of [0.97111269 0.02424949 0.01209417] (norm: 0.9714906958283921
+Residual norm: []
+sum of error 2.70647552693487
+
+
+
+lidar 4 on joint 5
+z=0 /home/dlrc1/measurements/20180925T1410000000.pkl
+[-0.01407135  0.14565222 -0.00477189 -0.03133793  0.92072765 -0.21885808]
+Linear least squares suggests an offset of [-0.01407135  0.14565222 -0.00477189] (in meters, xyz)
+and rotation of [-0.03133793  0.92072765 -0.21885808] (norm: 0.9469003805895391
+Residual norm: [0.01040194]
+sum of error 3.16971103130047
+
+[-0.0108765   0.14202307 -0.00465494 -0.03576995  0.93133041 -0.19942613]
+Linear least squares suggests an offset of [-0.0108765   0.14202307 -0.00465494] (in meters, xyz)
+and rotation of [-0.03576995  0.93133041 -0.19942613] (norm: 0.9531141568829902
+Residual norm: []
+sum of error 1.1520053878421483
+
+
+
+
+
+
+lidar 5 on joint 4
+z=0 not a lot of rotation in data /home/dlrc1/measurements/20180925T1413110000.pkl
+[ 4.88563513e-03 -1.89098969e-02  1.36769654e-01  5.56412658e-04
+  9.83044223e-02  8.99031664e-01]
+Linear least squares suggests an offset of [ 0.00488564 -0.0189099   0.13676965] (in meters, xyz)
+and rotation of [5.56412658e-04 9.83044223e-02 8.99031664e-01] (norm: 0.904390403024808
+Residual norm: [0.00180047]
+sum of error 1.059771907776485
+std_error 0.0009661105300319745
+
+percent that were outlier 344 1929 0.17833074131674442
+[ 0.00208789 -0.03741204  0.1384354   0.01651173  0.16768565  0.89222035]
+Linear least squares suggests an offset of [ 0.00208789 -0.03741204  0.1384354 ] (in meters, xyz)
+and rotation of [0.01651173 0.16768565 0.89222035] (norm: 0.9079913371587149
+Residual norm: []
+sum of error 1.059771907776485
+
+
+
+
+
+lidar 6 on jt 3
+z=0 not that much rotation /home/dlrc1/measurements/20180925T1414480000.pkl
+[ 0.13860735  0.06645231 -0.01411203  0.84711676  0.08764442 -0.38833656]
+Linear least squares suggests an offset of [ 0.13860735  0.06645231 -0.01411203] (in meters, xyz)
+and rotation of [ 0.84711676  0.08764442 -0.38833656] (norm: 0.9359987314369502
+Residual norm: [0.00230077]
+sum of error 1.0603261388003071
+x[:6] [ 0.13860735  0.06645231 -0.01411203  0.84711676  0.08764442 -0.38833656]
+std_error 0.001124039376927255
+
+percent that were outlier 318 1821 0.17462932454695224
+[ 0.13939866  0.07006125 -0.0132243   0.84311267  0.06914239 -0.39696317]
+Linear least squares suggests an offset of [ 0.13939866  0.07006125 -0.0132243 ] (in meters, xyz)
+and rotation of [ 0.84311267  0.06914239 -0.39696317] (norm: 0.9344513941536272
+Residual norm: []
+sum of error 0.2314148178098978
+
+
+
+lidar 7 on jt 3
+optimize regression wrt the x value
+x = -0.60 against a back board /home/dlrc1/measurements/20180925T1419370000.pkl
+[0.01089152 0.06571974 0.18947445 0.37677934 0.09777476 0.81897023]
+Linear least squares suggests an offset of [0.01089152 0.06571974 0.18947445] (in meters, xyz)
+and rotation of [0.37677934 0.09777476 0.81897023] (norm: 0.9067716426518454
+Residual norm: [0.01910414]
+sum of error 4.1158323146267355
+x[:6] [0.01089152 0.06571974 0.18947445 0.37677934 0.09777476 0.81897023]
+std_error 0.0028646548772302428
+
+percent that were outlier 523 2328 0.22465635738831616
+[-0.01610296  0.05238366  0.1885856   0.55158392  0.19341913  0.82307156]
+Linear least squares suggests an offset of [-0.01610296  0.05238366  0.1885856 ] (in meters, xyz)
+and rotation of [0.55158392 0.19341913 0.82307156] (norm: 1.0095061024629215
+Residual norm: []
+sum of error 1.0140120353372934
+
+
+
+lidar 8 on joint 3
+z=0 /home/dlrc1/measurements/20180925T1426080000.pkl
+[ 0.09101747  0.14465324 -0.09750162 -0.0286078   0.83755668  0.26530791]
+Linear least squares suggests an offset of [ 0.09101747  0.14465324 -0.09750162] (in meters, xyz)
+and rotation of [-0.0286078   0.83755668  0.26530791] (norm: 0.8790380397456601
+Residual norm: [0.00355163]
+
+
+camera on EE
+z=0 /home/dlrc1/measurements/20180926T0812290000.pkl"
+percent that were outlier 219 1281 0.17096018735362997
+[-0.01052392 -0.06403349 -0.04127753  0.07378408  0.02544135  1.00632009]
+Linear least squares suggests an offset of [-0.01052392 -0.06403349 -0.04127753] (in meters, xyz)
+and rotation of [0.07378408 0.02544135 1.00632009] (norm: 1.0093420979571048)
+Residual norm: []
+sum of error 0.24663234402936451
+
+
+** new calc for camera wrt ee**
+[ 0.01664065 -0.05731338 -0.03876165  0.27678456  0.19405154  0.00099747]
+Linear least squares suggests an offset of [ 0.01664065 -0.05731338 -0.03876165] (in meters, xyz)
+and rotation of [0.27678456 0.19405154 0.00099747] (norm: 0.33803356323954326)
+Residual norm: [0.00418847]
+sum of error 1.2461213875321302
+x[:6] [ 0.01664065 -0.05731338 -0.03876165  0.27678456  0.19405154  0.00099747]
+std_error 0.001808228100520042
+
+percent that were outlier 232 1281 0.18110850897736144
+[ 0.0145966  -0.05737133 -0.03899948  0.27855171  0.19506079  0.00072014]
+Linear least squares suggests an offset of [ 0.0145966  -0.05737133 -0.03899948] (in meters, xyz)
+and rotation of [0.27855171 0.19506079 0.00072014] (norm: 0.34005924118176306)
+Residual norm: []
+sum of error 0.24992746282867812
+
+
+** new calc for camera wrt j7 **
+[ 0.01664065 -0.05731338  0.07123835  0.27678456  0.19405154  0.00099747]
+Linear least squares suggests an offset of [ 0.01664065 -0.05731338  0.07123835] (in meters, xyz)
+and rotation of [0.27678456 0.19405154 0.00099747] (norm: 0.3380335632395425)
+Residual norm: [0.00418847]
+sum of error 1.2461213875321182
+x[:6] [ 0.01664065 -0.05731338  0.07123835  0.27678456  0.19405154  0.00099747]
+std_error 0.0018082281005200435
+
+percent that were outlier 232 1281 0.18110850897736144
+[ 0.0145966  -0.05737145  0.07100052  0.27854979  0.19506114  0.00072059]
+Linear least squares suggests an offset of [ 0.0145966  -0.05737145  0.07100052] (in meters, xyz)
+and rotation of [0.27854979 0.19506114 0.00072059] (norm: 0.34005786997472165)
+Residual norm: []
+sum of error 0.24981863125941695
+
+
+camera data for it looking at and around itself
+/home/dlrc1/measurements/20180926T1406570000.pkl
+

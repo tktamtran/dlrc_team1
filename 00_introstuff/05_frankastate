@@ -1,0 +1,44 @@
+# want to  get franka states / joint values
+# to get this to work:
+# need st 6 in x(r)panda so that is registers the signal, but first this script needs to registers franka_target_pos
+# so:
+# 1: register "franka target_pos"
+# 2: switch to st 6 in x(r)panda
+# 3: request "franka_state"
+
+
+# if xpanda says "Another task still running", $ freeze
+
+import py_at_broker as pab
+import pandas as pd
+import matplotlib.pyplot as plt
+import time
+import numpy as np
+
+b = pab.broker("tcp://10.250.144.21:51468")
+b.register_signal("franka_target_pos", pab.MsgType.target_pos)
+input('st 6 in xpanda...')
+b.request_signal("franka_state", pab.MsgType.franka_state)
+
+
+def get_jointvalues(broker, n_frames, df_name):
+    data = []
+
+    for i in range(n_frames):
+        print('getting', i)
+        msg = b.recv_msg("franka_state", -1)
+        data.append([msg.get_fnumber()] + msg.get_j_pos().tolist())
+
+    #print(data)
+    data = pd.DataFrame(data, columns = ['fnumber', 'j0', 'j1', 'j2', 'j3', 'j4', 'j5', 'j6'])
+    data.to_pickle(df_name)
+    print('done and pickled.')
+
+    return data
+
+get_jointvalues(b, 100, 'measurements/joints_lidar3.pkl')
+
+
+
+
+
