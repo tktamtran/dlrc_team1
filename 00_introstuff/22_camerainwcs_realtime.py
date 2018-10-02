@@ -41,11 +41,11 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
     ax1.set_ylabel('y')
     ax1.set_zlabel('z')
 
-    # camera_origin = np.dot(T0cam, np.array([0,0,0,1]))
-    # camera_target = np.dot(T0cam, np.array([0,0,1,1])*depth[principal_point[1], principal_point[0]]/1000)
-    # ax1.quiver(camera_origin[0], camera_origin[1], camera_origin[2],
-    #            camera_target[0], camera_target[1], camera_target[2],
-    #            color='r')
+    camera_origin = np.dot(T0cam, np.array([0,0,0,1]))
+    camera_target = np.dot(T0cam, np.array([0,0,1,1])*depth[principal_point[1], principal_point[0]]/1000)
+    ax1.quiver(camera_origin[0], camera_origin[1], camera_origin[2],
+               camera_target[0], camera_target[1], camera_target[2],
+               color='r')
 
     im = ax2.imshow(depth, origin='lower')
     plt.colorbar(im, cax=ax2)
