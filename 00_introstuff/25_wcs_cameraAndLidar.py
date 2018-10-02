@@ -16,9 +16,16 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
     if bound and (not boundingBox_min): wcs_points = np.array([p*bound/max(abs(p)) if max(abs(p)) > bound else p for p in wcs_points])
     if boundingBox_min: wcs_points = np.array([p for p in wcs_points if ((p[:3]<boundingBox_max).all() & (p[:3]>boundingBox_min).all())])
 
+    if boundingBox_min: # then cannot handle collecting points for buffer, since arrays of varying size
+        #points_in_buffer = np.array([]).reshape(0,4)
+        mask_boundingBox_min = wcs_points > boundingBox_min
+        points_in_buffer = wcs_points
+        colors_in_buffer =
+        points_in_buffer = points_in_buffer.unsqueeze()
+    else:
+        points_in_buffer[i % bufsize, :,:] = wcs_points
+        colors_in_buffer[i % bufsize, :,:] = np.array(point_colors).reshape(-1,3)/255
 
-    points_in_buffer[i % bufsize, :,:] = wcs_points
-    colors_in_buffer[i % bufsize, :,:] = np.array(point_colors).reshape(-1,3)/255
     colors_in_buffer = colors_in_buffer.reshape(-1,3)
     if colors_in_buffer.shape[0] == 1: colors_in_buffer = np.squeeze(colors_in_buffer, axis=0)
 
@@ -119,14 +126,14 @@ ax3 = fig.add_subplot(subplot_row, subplot_column,4)
 bound = None # in meter
 boundingBox_min = [-0.7, -0.7, -0.1] # bounding box for the pts seen by the camera
 boundingBox_max = [0.7, 0.7, 0.9]
-bufsize = 4
+bufsize = 1 # if boundingBox_min
 n_points = 475
 n_images = 5 # limit on data image in wcs collected
 i=0
-# points_in_buffer = np.array([np.array([])]).reshape(bufsize, 0, 4)
-# colors_in_buffer = np.array([np.array([])]).reshape(bufsize, 0, 3)
-points_in_buffer = np.empty((bufsize, n_points, 4))
-colors_in_buffer = np.empty((bufsize, n_points, 3))
+points_in_buffer = np.array()
+colors_in_buffer = np.array([np.array([])]).reshape(bufsize, 0, 3)
+# points_in_buffer = np.empty((bufsize, n_points, 4))
+# colors_in_buffer = np.empty((bufsize, n_points, 3))
 camera_resolution = (240,320)
 principal_point = (240//2, 320//2)
 lidar_info = {}
