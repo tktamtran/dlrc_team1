@@ -78,7 +78,7 @@ def get_jointToCoordinates(thetas, trueCoordinates=None, untilJoint=None):
 def img_to_ccs(depth_image, principal_point, camera_resolution, skip, rgb_image):
 
     depth_image = np.array(depth_image) / 1000
-
+    pp_ccs_point = []
     ccs_points = []
     rgb_colors = []
     for x in np.arange(1,camera_resolution[1], skip):
@@ -93,14 +93,31 @@ def img_to_ccs(depth_image, principal_point, camera_resolution, skip, rgb_image)
             #b = (y - principal_point[0]) / camera_resolution[0]
             ccs_point = depth_image[y,x] * np.array([a,b,1/1.015,0]) #1.035
             ccs_point[-1] = 1
+            # DEBUG CAMERA ARROWS
+            if y == principal_point[0] and x == principal_point[1]:
+                pp_ccs_point = ccs_point
+            # END DEBUG CAMERA ARROW
             ccs_points.append(ccs_point)
 
             rgb_colors.append([rgb_image[y*2,x*2]]) # rgb image is double the resolution of depth
 
+
+
+    # TODO: reincorporate this ugly hack into the for loop (calculate depth for
+    #       principal point) so the principal point is always part of the points
+    if not pp_ccs_point: # can't incorporate as if x=pp1 and y=pp0 in above loop, bc it skips over some x values
+        x = principal_point[1]
+        y = principal_point[0]
+        a = np.sin((x - principal_point[1]) / camera_resolution[1] * 91.2 * np.pi / 180) / 1.45
+        b = np.sin((y - principal_point[0]) / camera_resolution[0] * 65.5 * np.pi / 180) / 1.45
+        ccs_point = depth_image[y, x] * np.array([a, b, 1 / 1.015, 0])  # 1.035
+        ccs_point[-1] = 1
+        pp_ccs_point = ccs_point
+
     ccs_points = np.array(ccs_points)
     rgb_colors = np.array(rgb_colors).squeeze(axis=1)
 
-    return ccs_points, rgb_colors
+    return ccs_points, rgb_colors, pp_ccs_point
 
 
 def grab_image(broker=None):
@@ -197,69 +214,3 @@ def get_calibration_values(sensor):
     return transformation_values[sensor]['joint_number'], transformation_values[sensor]['transformation_matrix']
 
 
-
-def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resolution, bufsize, points_in_buffer, colors_in_buffer, i, box=None, detailed=False):
-    '''assumes subplot axes to already exist'''
-
-    T0ee, _,_,_ = get_jointToCoordinates(thetas=joint)
-    T0cam = np.dot(T0ee, Teecamera)
-    # K = np.array([[focal_length,0,principal_point[1]/ camera_resolution[1]],
-    #              [0, focal_length, principal_point[0]/ camera_resolution[0]],
-    #              [0,0,1]])
-    # T0caminternal = np.dot(T0cam, np.linalg.inv(K))
-    ccs_points, point_colors = img_to_ccs(depth, principal_point, camera_resolution, skip=13, rgb_image=rgb)
-    wcs_points = [np.dot(T0cam, ccs_point) for ccs_point in ccs_points]
-    points_in_buffer[i % bufsize, :,:] = wcs_points
-    colors_in_buffer[i % bufsize, :,:] = np.array(point_colors).reshape(-1,3)/255
-    colors_in_buffer = colors_in_buffer.reshape(-1,3)
-    if colors_in_buffer.shape[0] == 1: colors_in_buffer = np.squeeze(colors_in_buffer, axis=0)
-
-
-    #ax1.scatter(list(zip(*wcs_points))[0], list(zip(*wcs_points))[1], list(zip(*wcs_points))[2], s=50, c='b', alpha=0.1)
-    ax1.clear()
-    ax1.scatter(points_in_buffer[:,:,0], points_in_buffer[:,:,1], points_in_buffer[:,:,2], s=50, c=colors_in_buffer, alpha=0.5)
-    colors_in_buffer = colors_in_buffer.reshape((bufsize, -1, 3))
-    #ax1.axis('equal')
-    ax1.set_xlim(-1, 1)
-    ax1.set_ylim(-0.5,0.5)
-    ax1.set_zlim(-0.1, 1.5)
-    ax1.set_xlabel('x')
-    ax1.set_ylabel('y')
-    ax1.set_zlabel('z')
-
-    camera_origin = np.dot(T0cam, np.array([0,0,0,1]))
-    camera_target = np.dot(T0cam, np.array([0,0,1,1])*depth[principal_point[1], principal_point[0]]/1000)
-    ax1.quiver(camera_origin[0], camera_origin[1], camera_origin[2],
-               camera_target[0], camera_target[1], camera_target[2],
-               color='r')
-
-    im = ax2.imshow(depth, origin='lower')
-    plt.colorbar(im, cax=ax2)
-    ax2.set_xlim(ax2.get_xlim()[::-1])
-
-    ax3.clear()
-    ax3.imshow(rgb)
-    ax3.set_xlim(ax3.get_xlim()[::-1])
-    ax3.set_ylim(ax3.get_ylim()[::-1])
-
-    if detailed:
-        ax4.clear()
-        ax4.hist(list(zip(*wcs_points))[0], bins=80)
-        ax4.set_title('x values in wcs')
-
-        ax5.clear()
-        ax5.hist(list(zip(*wcs_points))[1], bins=80)
-        ax5.set_title('y values in wcs')
-
-        ax6.clear()
-        ax6.hist(list(zip(*wcs_points))[2], bins=80)
-        ax6.set_title('z values in wcs')
-
-        ax7.clear()
-        ax7.scatter(list(zip(*wcs_points))[0], list(zip(*wcs_points))[1])
-        ax7.set_position([box.x0, box.y0, box.width * 0.5, box.height * 1.0])
-        ax7.set_xlim(ax7.get_xlim()[::-1])
-        ax7.set_ylim(ax7.get_ylim()[::-1])
-
-
-    return points_in_buffer, colors_in_buffer

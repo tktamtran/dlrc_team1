@@ -21,7 +21,7 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
     #              [0, focal_length, principal_point[0]/ camera_resolution[0]],
     #              [0,0,1]])
     # T0caminternal = np.dot(T0cam, np.linalg.inv(K))
-    ccs_points, point_colors = img_to_ccs(depth, principal_point, camera_resolution, skip=13, rgb_image=rgb)
+    ccs_points, point_colors, pp_ccs = img_to_ccs(depth, principal_point, camera_resolution, skip=13, rgb_image=rgb)
     wcs_points = [np.dot(T0cam, ccs_point) for ccs_point in ccs_points]
     points_in_buffer[i % bufsize, :,:] = wcs_points
     colors_in_buffer[i % bufsize, :,:] = np.array(point_colors).reshape(-1,3)/255
@@ -34,17 +34,30 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
     ax1.scatter(points_in_buffer[:,:,0], points_in_buffer[:,:,1], points_in_buffer[:,:,2], s=50, c=colors_in_buffer, alpha=0.5)
     colors_in_buffer = colors_in_buffer.reshape((bufsize, -1, 3))
     #ax1.axis('equal')
+    # ax1.set_xlim(-1, 1)
+    # ax1.set_ylim(-0.5,0.5)
+    # ax1.set_zlim(-0.1, 1.5)
+    # for equal aspect ratio: all limits have a span of 2 meters
     ax1.set_xlim(-1, 1)
-    ax1.set_ylim(-0.5,0.5)
-    ax1.set_zlim(-0.1, 1.5)
+    ax1.set_ylim(-1, 1)
+    ax1.set_zlim(-0.1, 1.9)
     ax1.set_xlabel('x')
     ax1.set_ylabel('y')
     ax1.set_zlabel('z')
 
     camera_origin = np.dot(T0cam, np.array([0,0,0,1]))
-    camera_target = np.dot(T0cam, np.array([0,0,1,1])*depth[principal_point[1], principal_point[0]]/1000)
+    # camera_target = np.dot(T0cam, np.array([0,0,1,1])*depth[principal_point[1], principal_point[0]]/1000)
+    # find the point the camera is looking at. The principal point is structured
+    # (y,x), so the order should be p_p[0], p_p[1]
+    # also, it should be calculated just like the other image points just like
+    # in img_to_ccs
+    camera_target = np.dot(T0cam, np.array([0, 0, 1, 1]) * depth[principal_point[0], principal_point[1]] / 1000)
+    pp_wcs = np.dot(T0cam, pp_ccs)
+    # DEBUG CAMERA ARROWS
+    # END DEBUG CAMERA ARROWS
+    camera_vector = pp_wcs-camera_origin
     ax1.quiver(camera_origin[0], camera_origin[1], camera_origin[2],
-               camera_target[0], camera_target[1], camera_target[2],
+               camera_vector[0], camera_vector[1], camera_vector[2],
                color='r')
 
     im = ax2.imshow(depth, origin='lower')
