@@ -8,14 +8,23 @@ import numpy as np
 from pyquaternion import Quaternion
 
 
+# For the collision avoidance task, define collision avoidance exceptions
+# this is nice as it enforces checks if a robot moved without collision
+class CollisionException(Exception):
+    pass
+
+
 # TODO: create broker class instance that does not need to be passed
 
-def initialize(addr_broker_ip="tcp://localhost:51468"):
+def initialize(addr_broker_ip="tcp://localhost:51468", realsense = False, lidar = False):
     broker = pab.broker(addr_broker_ip)
-    #broker.register_signal("franka_state", pab.MsgType.franka_state)
     broker.register_signal("franka_target_pos", pab.MsgType.target_pos)
     broker.register_signal("franka_des_tau", pab.MsgType.des_tau)
     broker.request_signal("franka_state", pab.MsgType.franka_state, True)
+    if realsense:
+        broker.request_signal("realsense_images", pab.MsgType.realsense_image)
+    if lidar:
+        broker.request_signal("franka_lidar", pab.MsgType.franka_lidar)
     time.sleep(1)
     return broker
 
@@ -37,6 +46,11 @@ def set_new_pos(broker, new_pos, ctrl_mode=0, time_to_go=0.5):
     broker.send_msg("franka_target_pos", msg)
 
 
+def move_basic_ca(broker, new_pos, ctrl_mode=0, time_to_go=0.5):
+    set_new_pos(broker, new_pos, ctrl_mode, time_to_go)
+    wait_til_ready(broker)
+
+
 def set_zero_torques(broker):
     # substitute for static counter (for the fnumber)
     if not hasattr(set_zero_torques, "fnumber"):
@@ -55,6 +69,46 @@ def wait_til_ready(broker):
         msg = broker.recv_msg("franka_state", -1)
         if msg.get_flag_ready():
             break
+
+def wait_til_ready_ca(broker):
+    '''
+    wait_til_ready_ca waits for the robot to perform the current movement but commands the robot to stop if any of the
+    sensors sense something too close.
+    This command is used after issuing a new position command. So wait_til_ready_ca will stop and raise a
+    CollisionException on an impending collision. If that does not happen, it will block until the robot signals that it
+    is ready to receive a new command
+    :param broker: the broker to use
+    :return:
+    '''
+    nothing_is_close = True
+    while nothing_is_close: # in this basic case equivalent to 'while True' as an exception will be called if false
+        state_msg = broker.recv_msg("franka_state", -1)
+        lidar_msg = broker.recv_msg("franka_lidar", -1)
+        realsense_msg = broker.recv_msg("realsense_images", -1)
+        last_j_pos = state_msg.get_j_pos()
+        lidar_distances = lidar_msg.get_data() / 1000
+        realsense_distances = realsense_msg.get_depth()
+        realsense_distances = realsense_distances.reshape(realsense_msg.get_shape_depth())
+        # strip first row of distances as first line only contains zeros
+        realsense_distances = realsense_distances[1:, :] / 1000
+        min_distance = 0.05  # readings are given in meters!
+        realsense_too_close = (realsense_distances < min_distance).any()
+        lidar_too_close = (lidar_distances < min_distance).any()
+        if realsense_too_close or lidar_too_close:
+            # something is too close!
+            nothing_is_close = False
+            lidar_idx = np.flatnonzero(lidar_distances < min_distance)
+            realsense_idx = np.where(realsense_distances < min_distance)
+            # set the robot to keep last known joint position
+            # ctrl_mode = 1 signifies joint space control
+            set_new_pos(broker, last_j_pos, ctrl_mode=1, time_to_go=1)
+            raise CollisionException(f"Collision avoidance detected something too close\n"
+                                     f"Lidars {lidar_idx}\n"
+                                     f"Image pixels {realsense_idx}")
+        msg = broker.recv_msg("franka_state", -1)
+        if msg.get_flag_ready():
+            break
+
 
 
 def move_straight(broker, start_pos, target_pos, **kwargs):
@@ -153,11 +207,10 @@ def look_at(xyz_stand, xyz_target, up=np.asarray([0,0,1])):
     return Quaternion(q)
 
 
-
-
 def project_to_plane(vector, plane_normal):
     # equation for parallel component in plane from
     # http://www.euclideanspace.com/maths/geometry/elements/plane/lineOnPlane/index.htm
     projected = np.cross(plane_normal, np.cross(vector, plane_normal))
     projected = projected/(np.linalg.norm(plane_normal)**2)
     return projected
+
