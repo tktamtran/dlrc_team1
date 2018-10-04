@@ -18,8 +18,8 @@ class CollisionException(Exception):
 
 def initialize(addr_broker_ip="tcp://localhost:51468", realsense = False, lidar = False):
     broker = pab.broker(addr_broker_ip)
-    broker.register_signal("franka_target_pos", pab.MsgType.target_pos)
-    broker.register_signal("franka_des_tau", pab.MsgType.des_tau)
+    #broker.register_signal("franka_target_pos", pab.MsgType.target_pos)
+    #broker.register_signal("franka_des_tau", pab.MsgType.des_tau)
     broker.request_signal("franka_state", pab.MsgType.franka_state, True)
     if realsense:
         broker.request_signal("realsense_images", pab.MsgType.realsense_image)
@@ -48,14 +48,14 @@ def set_new_pos(broker, new_pos, ctrl_mode=0, time_to_go=0.5):
 
 def move_basic_ca(broker, new_pos, ctrl_mode=0, time_to_go=0.5):
     set_new_pos(broker, new_pos, ctrl_mode, time_to_go)
-    wait_til_ready(broker)
+    wait_til_ready_ca(broker)
 
 
 def set_zero_torques(broker):
     # substitute for static counter (for the fnumber)
     if not hasattr(set_zero_torques, "fnumber"):
         set_zero_torques.fnumber = 0  # it doesn't exist yet, so initialize it
-        # broker.register_signal("franka_des_tau", pab.MsgType.des_tau)
+        broker.register_signal("franka_des_tau", pab.MsgType.des_tau)
     msg = pab.des_tau_msg()
     msg.set_timestamp(time.monotonic())
     msg.set_fnumber(set_zero_torques.fnumber)
@@ -84,31 +84,77 @@ def wait_til_ready_ca(broker):
     while nothing_is_close: # in this basic case equivalent to 'while True' as an exception will be called if false
         state_msg = broker.recv_msg("franka_state", -1)
         lidar_msg = broker.recv_msg("franka_lidar", -1)
-        realsense_msg = broker.recv_msg("realsense_images", -1)
+        #realsense_msg = broker.recv_msg("realsense_images", -1)
         last_j_pos = state_msg.get_j_pos()
         lidar_distances = lidar_msg.get_data() / 1000
-        realsense_distances = realsense_msg.get_depth()
-        realsense_distances = realsense_distances.reshape(realsense_msg.get_shape_depth())
+        # TODO: wrapper around lidar readings that filters invalid results in
+        # the same way for every call to lidar readings, so that we don't access
+        # the raw values every time
+        lidar_distances = np.array([d if 0 < d < 2 else np.nan
+                           for d in lidar_distances])
+        # TODO: remove the next line after debugging
+        lidar_distances[2] = np.nan #JUST FOR DEBUGGING
+        #realsense_distances = realsense_msg.get_depth()
+        #realsense_distances = realsense_distances.reshape(realsense_msg.get_shape_depth())
         # strip first row of distances as first line only contains zeros
-        realsense_distances = realsense_distances[1:, :] / 1000
-        min_distance = 0.05  # readings are given in meters!
-        realsense_too_close = (realsense_distances < min_distance).any()
+        #realsense_distances = realsense_distances[1:, :] / 1000
+        min_distance = 0.06  # readings are given in meters!
+        #realsense_too_close = (realsense_distances < min_distance).any()
         lidar_too_close = (lidar_distances < min_distance).any()
-        if realsense_too_close or lidar_too_close:
+        if  lidar_too_close:# or realsense_too_close:
             # something is too close!
             nothing_is_close = False
             lidar_idx = np.flatnonzero(lidar_distances < min_distance)
-            realsense_idx = np.where(realsense_distances < min_distance)
+            #realsense_idx = np.where(realsense_distances < min_distance)
             # set the robot to keep last known joint position
             # ctrl_mode = 1 signifies joint space control
             set_new_pos(broker, last_j_pos, ctrl_mode=1, time_to_go=1)
             raise CollisionException(f"Collision avoidance detected something too close\n"
                                      f"Lidars {lidar_idx}\n"
-                                     f"Image pixels {realsense_idx}")
+                                     f"Lidar readings {lidar_distances}\n")
+                                     #f"Image pixels {realsense_idx}")
         msg = broker.recv_msg("franka_state", -1)
         if msg.get_flag_ready():
             break
 
+
+def check_if_path_free(broker):
+    '''
+    check_if_path_free blocks until every sensor allows movement (no sensor reads
+    something close
+    :param broker: the broker to use
+    :return:
+    '''
+    something_is_close = True
+    while something_is_close:
+        lidar_msg = broker.recv_msg("franka_lidar", -1)
+        #realsense_msg = broker.recv_msg("realsense_images", -1)
+        lidar_distances = lidar_msg.get_data() / 1000
+        # TODO: wrapper around lidar readings that filters invalid results in
+        # the same way for every call to lidar readings, so that we don't access
+        # the raw values every time
+        lidar_distances = np.array([d if 0 < d < 2 else np.nan
+                           for d in lidar_distances])
+        # TODO: remove the next line after debugging
+        lidar_distances[2] = np.nan #JUST FOR DEBUGGING
+        #realsense_distances = realsense_msg.get_depth()
+        #realsense_distances = realsense_distances.reshape(realsense_msg.get_shape_depth())
+        # strip first row of distances as first line only contains zeros
+        #realsense_distances = realsense_distances[1:, :] / 1000
+        min_distance = 0.06  # readings are given in meters!
+        #realsense_too_close = (realsense_distances < min_distance).any()
+        lidar_too_close = (lidar_distances < min_distance).any()
+        if  lidar_too_close:# or realsense_too_close:
+            # something is too close!
+            something_is_close = True
+            lidar_idx = np.flatnonzero(lidar_distances < min_distance)
+            #realsense_idx = np.where(realsense_distances < min_distance)
+            print('Cannot move! Something is too close')
+        else:
+            # nothing is close
+            # we can move again
+            print("Can move again")
+            something_is_close = False
 
 
 def move_straight(broker, start_pos, target_pos, **kwargs):
