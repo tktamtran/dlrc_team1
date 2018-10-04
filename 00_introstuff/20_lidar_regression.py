@@ -37,7 +37,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 sensor_type = 'camera'
-joint_idx = 8
+joint_idx = 6
 known_dim = 'z'
 known_value = 0 #-0.058
 
@@ -45,7 +45,8 @@ known_value = 0 #-0.058
 if sensor_type == 'camera':
     T_index = 0 #0 T0ee, 2 T0joint
     principal_point = (240//2, 320//2)
-    data = pd.DataFrame(pd.read_pickle(r"/home/dlrc1/measurements/20180926T0812290000.pkl"))
+    #data = pd.DataFrame(pd.read_pickle(r"/home/dlrc1/measurements/20180926T0812290000.pkl"))
+    data = pd.DataFrame(pd.read_pickle(r"/home/dlrc1/measurements/20181004T0923170000.pkl")) # camera positioned evenly/straight
     depth_images = data.realsense_depthdata
     lidar = [depth_images[i][principal_point[0], principal_point[1]]/1000 for i in range(len(depth_images))]
     plt.plot(lidar)

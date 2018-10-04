@@ -213,3 +213,22 @@ sum of error 0.24981863125941695
 camera data for it looking at and around itself
 /home/dlrc1/measurements/20180926T1406570000.pkl
 
+
+camera data of z=0 with camera adjusted to be straight/even (so annoying that it moves..)
+data = pd.DataFrame(pd.read_pickle(r"/home/dlrc1/measurements/20181004T0923170000.pkl"))
+
+camera wrt j8/j7 / same wrt EE / diff wrt j6
+[ 0.02873627 -0.02646626 -0.05780681  0.2134549   0.22704745  0.01776022]
+Linear least squares suggests an offset of [ 0.02873627 -0.02646626 -0.05780681] (in meters, xyz)
+and rotation of [0.2134549  0.22704745 0.01776022] (norm: 0.3121361284542387)
+Residual norm: [0.44365839]
+sum of error 3.995149809210249
+x[:6] [ 0.02873627 -0.02646626 -0.05780681  0.2134549   0.22704745  0.01776022]
+std_error 0.03129502102672091
+
+percent that were outlier 11 453 0.024282560706401765
+[ 0.00858252 -0.05868231 -0.03880095  0.18176996  0.24936794  0.00034958]
+Linear least squares suggests an offset of [ 0.00858252 -0.05868231 -0.03880095] (in meters, xyz)
+and rotation of [0.18176996 0.24936794 0.00034958] (norm: 0.30858517166080307)
+Residual norm: []
+sum of error 0.32155941579215763
