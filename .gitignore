@@ -1,3 +1,4 @@
-measurements/
+00_introstuff/measurements/
 __pycache__/
 .idea/
+01_networks/data_robot/
