@@ -23,7 +23,7 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
         points_in_buffer = np.array([]).reshape(0,4)
         colors_in_buffer = np.array([]).reshape(0,3)
         mask_boundingBox = (wcs_points[:,:3] > np.tile(boundingBox_min, (wcs_points.shape[0],1))) * (wcs_points[:,:3] < np.tile(boundingBox_max, (wcs_points.shape[0],1)))
-        idx_boundingBox = [i for i,m in enumerate(mask_boundingBox) if m.all()]
+        idx_boundingBox = [i for i,m in enumerate(mask_boundingBox) if not m.all()]
         wcs_points = wcs_points[idx_boundingBox,:]
         points_in_buffer = np.expand_dims(wcs_points, axis=0)
         colors_in_buffer = point_colors[idx_boundingBox,:]/255
@@ -122,11 +122,13 @@ if args.mode_realtime:
     batch_number = '_rt20'
 
 if args.mode_dataset:
-    filename = "/home/dlrc1/measurements/20181002T0821450000.pkl"
+    #filename = "/home/dlrc1/measurements/20181002T0821450000.pkl"
+    filename = "measurements/dataorig_robot_batch_rt20.pkl"
     data = pd.DataFrame(pd.read_pickle(filename))
+    data = data.rename(columns={"realsense_depth": "realsense_depthdata"})
     data.reset_index(inplace=True)
     n = data.shape[0]
-    batch_number = filename.split('/')[-1].split('.')[0]
+    batch_number = '_' + filename.split('_')[-1].split('.')[0]
 
 
 # initializing subplots
@@ -187,7 +189,7 @@ while True:
         readings_partial = {
             'state_j_pos': joint,
             'realsense_rgbdata': rgb,
-            'realsense_depth': depth
+            'realsense_depthdata': depth
         }
         if args.lidar: readings_partial['lidar_data'] = lidar_readings
 
@@ -241,8 +243,9 @@ while True:
 joint_names = ['j'+str(j) for j in range(7)]
 data_collect_wcs = pd.DataFrame(data_collect_wcs.reshape(-1,15), columns = joint_names + ['co_x', 'co_y', 'co_z', 'co_w', 'ct_x', 'ct_y', 'ct_z', 'ct_w'])
 data_collect_real = pd.DataFrame(data_collect_real)
-picklename = 'measurements/datawcs_robot_batch' + str(batch_number) + '_' + str(data_collect_wcs.shape[0]) + '.pkl'
+picklename = 'measurements/datawcs_nonrobot_batch' + str(batch_number) + '_' + str(data_collect_wcs.shape[0]) + '.pkl'
+realname = 'measurements/datawcs_nonrobot_batch' + str(batch_number) + '.pkl'
 data_collect_wcs.to_pickle(picklename)
-data_collect_real.to_pickle(picklename.replace('wcs', 'orig'))
+if args.mode_realtime: data_collect_real.to_pickle(picklename.replace('wcs', 'orig'))
 print('data pickled as', picklename)
 print('total points collected', data_collect_wcs.shape)

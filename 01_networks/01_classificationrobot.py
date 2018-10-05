@@ -15,7 +15,7 @@ batch_size = 200
 
 net = Network00()
 criterion = nn.MSELoss(reduction = 'sum')
-optimizer = torch.optim.SGD(net.parameters(), lr=1e-04)
+optimizer = torch.optim.SGD(net.parameters(), lr=1e-04, weight_decay=1e-2)
 
 
 # loop over datasets
@@ -41,7 +41,7 @@ for e,file_data in enumerate(files_data):
         loss.backward()
         optimizer.step()
 
-torch.save(net.state_dict(), 'models/trained_Network00')
+#torch.save(net.state_dict(), 'models/trained_Network00.pkl')
 
 plt.plot(loss_history)
 plt.show()

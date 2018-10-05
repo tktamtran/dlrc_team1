@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52869ff9-51c5-4814-ab3a-658c1714ae48" name="Default Changelist" comment="" />
+    <list default="true" id="52869ff9-51c5-4814-ab3a-658c1714ae48" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/27_add_labels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01_networks/02_estimator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01_networks/03_tf_familiarization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01_networks/01_classificationrobot.py" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/01_classificationrobot.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +63,12 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="8" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.4" value="7" />
           <entry key="project.open.time.5" value="9" />
           <entry key="project.open.time.6" value="3" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -71,7 +78,7 @@
           <entry key="argparse" value="2" />
           <entry key="calibration_values" value="3" />
           <entry key="ipynb" value="6" />
-          <entry key="py" value="167" />
+          <entry key="py" value="169" />
           <entry key="sympy shell transformation matrices" value="1" />
           <entry key="txt" value="4" />
         </counts>
@@ -80,17 +87,17 @@
         <counts>
           <entry key="IPNB" value="6" />
           <entry key="PLAIN_TEXT" value="10" />
-          <entry key="Python" value="178" />
+          <entry key="Python" value="180" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="05_DH-transform" value="123" />
           <entry key="05_frankastate" value="1252" />
-          <entry key="Python Console" value="1650" />
+          <entry key="Python Console" value="1800" />
           <entry key="calibration_values" value="1111" />
           <entry key="dummy" value="80" />
-          <entry key="py" value="49749" />
+          <entry key="py" value="50426" />
           <entry key="sympy shell transformation matrices" value="544" />
           <entry key="txt" value="3396" />
         </counts>
@@ -98,7 +105,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="5131" />
-          <entry key="Python" value="52774" />
+          <entry key="Python" value="53601" />
         </counts>
       </usages-collector>
     </session>
@@ -106,10 +113,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1853">
+              <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/16_zerotorques.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -197,10 +213,11 @@
         <option value="$PROJECT_DIR$/20_lidar_regression.py" />
         <option value="$PROJECT_DIR$/calibration_values" />
         <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" />
         <option value="$PROJECT_DIR$/dlrc_control/26_basic_collision_avoidance.py" />
         <option value="$PROJECT_DIR$/26_basic_collision_avoidance.py" />
         <option value="$PROJECT_DIR$/dlrc_control/__init__.py" />
+        <option value="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" />
+        <option value="$PROJECT_DIR$/27_add_labels.py" />
       </list>
     </option>
   </component>
@@ -211,8 +228,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2004" />
-    <option name="y" value="47" />
+    <option name="x" value="1979" />
+    <option name="y" value="104" />
     <option name="width" value="2247" />
     <option name="height" value="1414" />
   </component>
@@ -224,6 +241,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,12 +258,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../01_networks" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -420,9 +437,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2004" y="47" width="2247" height="1414" extended-state="0" />
+    <frame x="1979" y="104" width="2247" height="1414" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12585188" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17174011" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -436,8 +454,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4989496" weight="0.32803813" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50630254" side_tool="true" weight="0.3444692" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49369746" weight="0.34471804" />
-      <window_info anchor="bottom" id="Python Console" internal_type="SLIDING" order="12" sideWeight="0.49972022" weight="0.44309235" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49369746" weight="0.3443662" />
+      <window_info active="true" anchor="bottom" id="Python Console" internal_type="SLIDING" order="12" sideWeight="0.49972022" visible="true" weight="0.49960285" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -715,10 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1538468339631" expanded="true" signature="601:602" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,13 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2176">
-          <caret line="128" column="52" selection-start-line="128" selection-start-column="52" selection-end-line="128" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -805,7 +812,24 @@
     <entry file="file://$PROJECT_DIR$/16_zerotorques.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="33" lean-forward="true" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/27_add_labels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="e#33#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
         </state>
       </provider>
     </entry>
