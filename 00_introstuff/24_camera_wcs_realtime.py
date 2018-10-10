@@ -55,7 +55,7 @@ while (True):
 
     T0ee, _, _, _ = get_jointToCoordinates(thetas=joint)
     T0cam = np.dot(T0ee, Teecamera)
-    ccs_points, point_colors = img_to_ccs(depth, principal_point, camera_resolution, skip=5, rgb_image=rgb)
+    ccs_points, point_colors,_ = img_to_ccs(depth, principal_point, camera_resolution, skip=5, rgb_image=rgb)
     wcs_points = np.array([np.dot(T0cam, ccs_point) for ccs_point in ccs_points]) # still homogeneous
     wcs_points = np.round(wcs_points, 2)
 

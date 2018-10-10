@@ -7,7 +7,7 @@ import time, sys, argparse
 import py_at_broker as pab
 import pandas as pd
 import pickle
-
+import scipy.stats as ss
 
 
 # deriving the transformation matrices using the DH params
@@ -44,8 +44,7 @@ def get_jointToCoordinates(thetas, trueCoordinates=None, untilJoint=None):
                       [0, 0, 0, 1]])
 
         # make sure this is a proper transformation matrix composed of a rotation and translational part:
-        if not np.isclose(T[0:3, 0:3].T, np.linalg.inv(T[0:3, 0:3]), 1e-4, 1e-4).all(): raise ValueError(
-            'transformation matrix invalid')
+        #if not np.isclose(T[0:3, 0:3].T, np.linalg.inv(T[0:3, 0:3]), 1e-4, 1e-4).all(): raise ValueError('transformation matrix invalid')
 
         Tproduct = np.dot(Tproduct, T)
         Tlist.append(T)
@@ -69,7 +68,12 @@ def get_jointToCoordinates(thetas, trueCoordinates=None, untilJoint=None):
     else:
         Tjoint = None
 
-    return Tproduct, Tlist, Tjoint, EE_coord
+    Tjoints = [np.eye(4,4)]
+    for T in Tlist:
+        Tjoints.append(np.dot(Tjoints[-1], T))
+    Tjoints = Tjoints[1:]
+
+    return Tproduct, Tlist, Tjoint, EE_coord, Tjoints
 
 
 
@@ -214,3 +218,5 @@ def get_calibration_values(sensor):
     return transformation_values[sensor]['joint_number'], transformation_values[sensor]['transformation_matrix']
 
 
+def get_truncated_normal(mean=0, sd=1, low=0, upp=10):
+   return ss.truncnorm((low - mean) / sd, (upp - mean) / sd, loc=mean, scale=sd)

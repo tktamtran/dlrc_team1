@@ -6,6 +6,7 @@ import time
 import py_at_broker as pab
 import numpy as np
 from pyquaternion import Quaternion
+import utils
 
 
 # For the collision avoidance task, define collision avoidance exceptions
@@ -29,21 +30,83 @@ def initialize(addr_broker_ip="tcp://localhost:51468", realsense = False, lidar 
     return broker
 
 
-def set_new_pos(broker, new_pos, ctrl_mode=0, time_to_go=0.5):
+def set_new_pos(broker, new_pos, ctrl_mode, time_to_go, fnumber):
     # substitute for static counter (for the fnumber)
     if not hasattr(set_new_pos, "fnumber"):
         broker.register_signal("franka_target_pos", pab.MsgType.target_pos)
         set_new_pos.fnumber = 0  # it doesn't exist yet, so initialize it
     msg = pab.target_pos_msg()
     msg.set_timestamp(time.monotonic())
-    msg.set_ctrl_t(ctrl_mode)  # 0:cartesian space, 1: joint space
+    msg.set_ctrl_t(ctrl_mode)  # 0:cartesian space, 1:joint space
     msg.set_fnumber(set_new_pos.fnumber)
+    #msg.set_fnumber(fnumber)
     set_new_pos.fnumber += 1
     if type(new_pos) is not np.array:
         new_pos = np.asarray(new_pos)
     msg.set_pos(new_pos)
     msg.set_time_to_go(time_to_go)
     broker.send_msg("franka_target_pos", msg)
+
+def random_joint_config():
+    """
+    this creates a new random joint configuration for the robot so that we can explore the joint space effectively
+    :param broker:      the broker to use
+    :param time_to_go:  the time allowed to go to the new position
+    """
+    # The joint limits according to https://frankaemika.github.io/docs/control_parameters.html are
+    q_limits = np.array([[-2.8973, 2.8973],
+                         [-1.7628, 1.7628],
+                         [-2.8973, 2.8973],
+                         [-3.0718, -0.0698],
+                         [-2.8973, 2.8973],
+                         [-0.0175, 3.7525],
+                         [-2.8973, 2.8973]])
+    i = 0
+    while True:  # only break from the while loop if a valid config was found
+        rand_config = [np.random.uniform(q_limits[idx, 0], q_limits[idx, 1]) for idx in range(7)]
+        # check if all joints (+ 10 centimeters for now) are in the positive world z coordinates
+        _,_,_,_,T_list = utils.get_jointToCoordinates(rand_config)
+        T_offsets = np.array([T[:3, 3] for T in T_list])
+        #print(T_offsets)
+        T_z = np.array([T[2] for T in T_offsets])
+        i+=1
+        if np.all(T_z > 0.005):
+            # this means that every joint center is at least 10 centimeters above the table
+            # so that is valid configuration for us and we can stop the loop
+            print(rand_config, 'after', i, 'attempts')
+            i = 0
+            break
+
+    # create random configs within the joint range and make sure that all joints stay above table
+    # take into account that the joint centers are some centimeters within the robot shell
+    return rand_config
+
+
+def gen_joint_configs(initial, n_configs):
+    '''generate valid joint configs from an initial valid joint config'''
+
+    q_limits = np.array([[-2.8973, 2.8973],
+                         [-1.7628, 1.7628],
+                         [-2.8973, 2.8973],
+                         [-3.0718, -0.0698],
+                         [-2.8973, 2.8973],
+                         [-0.0175, 3.7525],
+                         [-2.8973, 2.8973]])
+
+    configs = np.empty((n_configs,7))
+    configs[0,:] = initial
+
+    i = 1
+    while i < n_configs:
+        configs[i, :] = configs[i-1,:]
+        configs[i, i%7] = float("%.2f" % utils.get_truncated_normal(mean=configs[i,i%7], sd=1, low=q_limits[i%7, 0], upp=q_limits[i%7, 1]).rvs())
+
+        _,_,_,_,Tlist = utils.get_jointToCoordinates(configs[i,:])
+        T_offset = np.array(Tlist)[:,:3,3]
+        T_z = np.array(Tlist)[:,2,3]
+        if (T_z > 0.005).all(): i+=1
+
+    return configs
 
 
 def move_basic_ca(broker, new_pos, ctrl_mode=0, time_to_go=0.5):
@@ -259,4 +322,25 @@ def project_to_plane(vector, plane_normal):
     projected = np.cross(plane_normal, np.cross(vector, plane_normal))
     projected = projected/(np.linalg.norm(plane_normal)**2)
     return projected
+
+def smooth_filter_hampel(vals_orig, k=7, t0=3):
+    '''
+    this so-called hampel filter filters the data in a nonlinear way: if the
+    value under consideration is outside the 3-sigma range in the local
+    neighbourhood k, then it is replaced with the median of those 7 values, but
+    unchanged if it is within the 3-sigma range
+    vals: pandas series of values from which to remove outliers
+    k: size of window (including the sample; 7 is equal to 3 on either side of value)
+    '''
+    #Make copy so original not edited
+    vals=vals_orig.copy()
+    #Hampel Filter
+    L= 1.4826
+    rolling_median=vals.rolling(k).median()
+    difference=np.abs(rolling_median-vals)
+    median_abs_deviation=difference.rolling(k).median()
+    threshold= t0 *L * median_abs_deviation
+    outlier_idx=difference>threshold
+    vals[outlier_idx]=np.nan
+    return(vals)
 

@@ -23,7 +23,7 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
         points_in_buffer = np.array([]).reshape(0,4)
         colors_in_buffer = np.array([]).reshape(0,3)
         mask_boundingBox = (wcs_points[:,:3] > np.tile(boundingBox_min, (wcs_points.shape[0],1))) * (wcs_points[:,:3] < np.tile(boundingBox_max, (wcs_points.shape[0],1)))
-        idx_boundingBox = [i for i,m in enumerate(mask_boundingBox) if not m.all()]
+        idx_boundingBox = [i for i,m in enumerate(mask_boundingBox) if m.all()] # if not, if want outside of BB
         wcs_points = wcs_points[idx_boundingBox,:]
         points_in_buffer = np.expand_dims(wcs_points, axis=0)
         colors_in_buffer = point_colors[idx_boundingBox,:]/255
@@ -119,7 +119,7 @@ if args.mode_realtime:
     broker.request_signal("realsense_images", pab.MsgType.realsense_image)
     if args.lidar: broker.request_signal("franka_lidar", pab.MsgType.franka_lidar)
     n = 50 # limit on how long real time can run
-    batch_number = '_rt20'
+    batch_number = '_tmp'
 
 if args.mode_dataset:
     #filename = "/home/dlrc1/measurements/20181002T0821450000.pkl"
@@ -185,7 +185,6 @@ while True:
         joint = state_msg.get_j_pos()
         if args.lidar: lidar_readings = broker.recv_msg("franka_lidar", -1).get_data()[:]/1000
         rgb, depth = grab_image(broker)
-
         readings_partial = {
             'state_j_pos': joint,
             'realsense_rgbdata': rgb,
