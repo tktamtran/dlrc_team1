@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52869ff9-51c5-4814-ab3a-658c1714ae48" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../01_networks/04_classificationresults.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../01_networks/05_mergedplots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01_networks/05_hackyclassification.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01_networks/06_toyencoder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/15_reviewdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/15_reviewdata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/24_camera_wcs_realtime.py" beforeDir="false" afterPath="$PROJECT_DIR$/24_camera_wcs_realtime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_networks/01_classificationrobot.py" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/01_classificationrobot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_networks/Network00.py" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/Network00.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01_networks/05_mergedplots.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +76,7 @@
           <entry key="argparse" value="2" />
           <entry key="calibration_values" value="3" />
           <entry key="ipynb" value="6" />
-          <entry key="py" value="178" />
+          <entry key="py" value="179" />
           <entry key="sympy shell transformation matrices" value="1" />
           <entry key="txt" value="5" />
         </counts>
@@ -89,7 +85,7 @@
         <counts>
           <entry key="IPNB" value="6" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="189" />
+          <entry key="Python" value="190" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -117,10 +113,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="19" />
+            <state relative-caret-position="-1105">
+              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -136,11 +137,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/12_randomMovements.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="585">
-              <caret line="79" column="12" lean-forward="true" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
+              <caret line="79" column="12" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
               <folding>
                 <element signature="e#53#80#0" expanded="true" />
               </folding>
@@ -258,6 +259,7 @@
         <option value="$PROJECT_DIR$/04_robotcontrol.py" />
         <option value="$PROJECT_DIR$/12_randomMovements.py" />
         <option value="$PROJECT_DIR$/dlrc_control/__init__.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
       </list>
     </option>
   </component>
@@ -287,11 +289,6 @@
             <path>
               <item name="00_introstuff" type="b2602c69:ProjectViewProjectNode" />
               <item name="00_introstuff" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="00_introstuff" type="b2602c69:ProjectViewProjectNode" />
-              <item name="00_introstuff" type="462c0819:PsiDirectoryNode" />
-              <item name="dlrc_control" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -480,7 +477,7 @@
     <frame x="2022" y="73" width="2377" height="1377" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1012441" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1012441" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -494,7 +491,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4989496" weight="0.32803813" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50630254" side_tool="true" weight="0.3444692" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49369746" visible="true" weight="0.3952537" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49369746" visible="true" weight="0.3952537" />
       <window_info anchor="bottom" id="Python Console" internal_type="SLIDING" order="12" sideWeight="0.49972022" weight="0.22001588" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -825,13 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/04_robotcontrol.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -864,12 +854,22 @@
     <entry file="file://$PROJECT_DIR$/12_randomMovements.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
-          <caret line="79" column="12" lean-forward="true" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
+          <caret line="79" column="12" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
           <folding>
             <element signature="e#53#80#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1105">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
