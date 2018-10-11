@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52869ff9-51c5-4814-ab3a-658c1714ae48" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../01_networks/05_hackyclassification.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../01_networks/06_toyencoder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/29_quaternionverify.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_networks/05_mergedplots.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01_networks/05_hackyclassification.py" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/05_hackyclassification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01_networks/05_pointcloudvis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/05_pointcloudvis.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,10 +25,11 @@
     <SUITE FILE_PATH="coverage/00_introstuff$21_pixeltransforms.coverage" NAME="21_pixeltransforms Coverage Results" MODIFIED="1537971125696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$11_recordcamera.coverage" NAME="11_recordcamera Coverage Results" MODIFIED="1537276147265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$03_continuousimg.coverage" NAME="03_continuousimg Coverage Results" MODIFIED="1538654714251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/00_introstuff$16_zerotorques.coverage" NAME="16_zerotorques Coverage Results" MODIFIED="1539166211046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/00_introstuff$16_zerotorques.coverage" NAME="16_zerotorques Coverage Results" MODIFIED="1539278628021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$25_wcs_cameraAndLidar.coverage" NAME="25_wcs_cameraAndLidar Coverage Results" MODIFIED="1538462133978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1537289748378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dlrc_control" />
     <SUITE FILE_PATH="coverage/00_introstuff$20_lidar_regression.coverage" NAME="20_lidar_regression Coverage Results" MODIFIED="1537962454726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/00_introstuff$28_obstacle_avoidance_robot_lidar_orientation.coverage" NAME="28_obstacle_avoidance_robot_lidar_orientation Coverage Results" MODIFIED="1539270626532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$09_recordlidars.coverage" NAME="09_recordlidars Coverage Results" MODIFIED="1537361487060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$17_camcalibration.coverage" NAME="17_camcalibration Coverage Results" MODIFIED="1537812042937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$08_1_recordsensors.coverage" NAME="08.1_recordsensors Coverage Results" MODIFIED="1537784593072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -40,6 +41,7 @@
     <SUITE FILE_PATH="coverage/00_introstuff$10_recordstate.coverage" NAME="10_recordstate Coverage Results" MODIFIED="1537260616959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$07_controlandlidar.coverage" NAME="07_controlandlidar Coverage Results" MODIFIED="1537359298455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$04_robotcontrol.coverage" NAME="04_robotcontrol Coverage Results" MODIFIED="1536938943299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/00_introstuff$29_quaternionverify.coverage" NAME="29_quaternionverify Coverage Results" MODIFIED="1539260238512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$torqueCtl_teaching.coverage" NAME="torqueCtl_teaching Coverage Results" MODIFIED="1537545979092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/git/sl/sl_panda/src/pyctl/examples" />
   </component>
   <component name="DatabaseView">
@@ -75,27 +77,29 @@
           <entry key="05_frankastate" value="10" />
           <entry key="argparse" value="2" />
           <entry key="calibration_values" value="3" />
+          <entry key="h" value="5" />
           <entry key="ipynb" value="6" />
-          <entry key="py" value="179" />
+          <entry key="py" value="195" />
           <entry key="sympy shell transformation matrices" value="1" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="C++" value="5" />
           <entry key="IPNB" value="6" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="190" />
+          <entry key="Python" value="206" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="05_DH-transform" value="123" />
           <entry key="05_frankastate" value="1252" />
-          <entry key="Python Console" value="1800" />
+          <entry key="Python Console" value="1856" />
           <entry key="calibration_values" value="1111" />
           <entry key="dummy" value="80" />
-          <entry key="py" value="52888" />
+          <entry key="py" value="54111" />
           <entry key="sympy shell transformation matrices" value="544" />
           <entry key="txt" value="3396" />
         </counts>
@@ -103,47 +107,72 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="5131" />
-          <entry key="Python" value="56063" />
+          <entry key="Python" value="57342" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1105">
-              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+            <state relative-caret-position="425">
+              <caret line="31" column="81" lean-forward="true" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/git/sl/sl_panda/src/pyctl/pyctl_traj.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="342" column="58" selection-start-line="342" selection-start-column="54" selection-end-line="342" selection-end-column="58" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dlrc_control/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="101" column="145" selection-start-line="101" selection-start-column="145" selection-end-line="101" selection-end-column="145" />
+            <state relative-caret-position="171">
+              <caret line="301" column="44" selection-start-line="301" selection-start-column="44" selection-end-line="301" selection-end-column="44" />
               <folding>
                 <element signature="e#159#170#0" expanded="true" />
-                <marker date="1539189975628" expanded="true" signature="3552:4432" ph="..." />
+                <marker date="1539248953000" expanded="true" signature="3552:4432" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/12_randomMovements.py">
+        <entry file="file://$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="79" column="12" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
+            <state relative-caret-position="-4588">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
-                <element signature="e#53#80#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.virtualenvs/dlrc/lib/python3.6/site-packages/zmq/sugar/poll.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="973">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/29_quaternionverify.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,11 +181,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
-              <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+            <state relative-caret-position="918">
+              <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-                <marker date="1539179322402" expanded="true" signature="8251:8365" ph="..." />
+                <marker date="1539284112127" expanded="true" signature="8347:8461" ph="..." />
               </folding>
             </state>
           </provider>
@@ -182,12 +211,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pos</find>
-      <find>recv</find>
-      <find>png</find>
-      <find>realsense</find>
-      <find>sk</find>
-      <find>pyquat</find>
       <find>realbot</find>
       <find>col1</find>
       <find>col2</find>
@@ -197,11 +220,34 @@
       <find>principal_point</find>
       <find>mask_to</find>
       <find>quaternion</find>
+      <find>transforms</find>
+      <find>lidar</find>
+      <find>MY_VECTOR</find>
+      <find>subJac</find>
+      <find>broker</find>
+      <find>jMaskNum</find>
+      <find>x_err</find>
+      <find>vec_mat_mult</find>
+      <find>cur</find>
+      <find>jacobian</find>
+      <find>gradi</find>
+      <find>pose_difference</find>
+      <find>ku</find>
+      <find>kp</find>
+      <find>pgain_ee</find>
+      <find>6</find>
+      <find>target</find>
+      <find>sigma_ddx_ee</find>
+      <find>3</find>
+      <find>quat</find>
+      <find>skip</find>
     </findStrings>
     <replaceStrings>
       <replace>jpg</replace>
       <replace>col2</replace>
       <replace>col3</replace>
+      <replace>[</replace>
+      <replace>des</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -210,8 +256,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/brainstorming.txt" />
-        <option value="$PROJECT_DIR$/06_lidarstats.py" />
         <option value="$PROJECT_DIR$/05_DH-transform" />
         <option value="$PROJECT_DIR$/00_recordsensors.py" />
         <option value="$PROJECT_DIR$/09_recordsensors.py" />
@@ -254,12 +298,15 @@
         <option value="$PROJECT_DIR$/27_add_labels.py" />
         <option value="$PROJECT_DIR$/15_reviewdata.py" />
         <option value="$PROJECT_DIR$/24_camera_wcs_realtime.py" />
-        <option value="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" />
-        <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/04_robotcontrol.py" />
         <option value="$PROJECT_DIR$/12_randomMovements.py" />
         <option value="$PROJECT_DIR$/dlrc_control/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/30_obstacle_avoidance_robot_lidar.py" />
+        <option value="$PROJECT_DIR$/29_quaternionverify.py" />
+        <option value="$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" />
       </list>
     </option>
   </component>
@@ -269,11 +316,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="2022" />
-    <option name="y" value="73" />
-    <option name="width" value="2377" />
-    <option name="height" value="1377" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2147" />
+    <option name="y" value="27" />
+    <option name="width" value="2435" />
+    <option name="height" value="1554" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -290,6 +337,11 @@
               <item name="00_introstuff" type="b2602c69:ProjectViewProjectNode" />
               <item name="00_introstuff" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="00_introstuff" type="b2602c69:ProjectViewProjectNode" />
+              <item name="00_introstuff" type="462c0819:PsiDirectoryNode" />
+              <item name="dlrc_control" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -299,7 +351,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/git/sl/sl_panda/src/pyctl" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -368,50 +420,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="23_camera_wcs_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="00_introstuff" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/23_camera_wcs_model.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="25_wcs_cameraAndLidar" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="00_introstuff" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="26_basic_collision_avoidance" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="00_introstuff" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -434,20 +442,64 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="28_obstacle_avoidance_robot_lidar_orientation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="00_introstuff" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="29_quaternionverify" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="00_introstuff" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/29_quaternionverify.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.16_zerotorques" />
-      <item itemvalue="Python.23_camera_wcs_model" />
-      <item itemvalue="Python.25_wcs_cameraAndLidar" />
       <item itemvalue="Python.26_basic_collision_avoidance" />
       <item itemvalue="Python.03_continuousimg" />
+      <item itemvalue="Python.29_quaternionverify" />
+      <item itemvalue="Python.28_obstacle_avoidance_robot_lidar_orientation" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.16_zerotorques" />
+        <item itemvalue="Python.28_obstacle_avoidance_robot_lidar_orientation" />
+        <item itemvalue="Python.29_quaternionverify" />
         <item itemvalue="Python.26_basic_collision_avoidance" />
         <item itemvalue="Python.03_continuousimg" />
-        <item itemvalue="Python.25_wcs_cameraAndLidar" />
-        <item itemvalue="Python.23_camera_wcs_model" />
       </list>
     </recent_temporary>
   </component>
@@ -474,16 +526,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2022" y="73" width="2377" height="1377" extended-state="0" />
-    <editor active="true" />
+    <frame x="1967" y="25" width="2513" height="1575" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1012441" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09566275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.31914893" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49494523" weight="0.15630114" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49972022" weight="0.39829192" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.31830987" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49494523" weight="0.22253521" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49972022" weight="0.39788732" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49972022" weight="0.12470215" />
@@ -491,12 +542,12 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4989496" weight="0.32803813" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50630254" side_tool="true" weight="0.3444692" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49369746" visible="true" weight="0.3952537" />
-      <window_info anchor="bottom" id="Python Console" internal_type="SLIDING" order="12" sideWeight="0.49972022" weight="0.22001588" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49369746" visible="true" weight="0.21549296" />
+      <window_info anchor="bottom" id="Python Console" internal_type="SLIDING" order="12" sideWeight="0.49972022" weight="0.2197183" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.15615615" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.14754763" />
       <window_info anchor="right" id="Database" order="4" weight="0.32966024" />
     </layout>
     <layout-to-restore>
@@ -541,30 +592,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/08_createreadingdatabase.py" />
-    <entry file="file://$PROJECT_DIR$/sympy shell transformation matrices" />
-    <entry file="file://$USER_HOME$/.virtualenvs/dlrc/lib/python3.6/site-packages/skimage/util/dtype.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/00_oneclass.py" />
-    <entry file="file://$PROJECT_DIR$/05_jointsAndCoordinates.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/02_realsenseimg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/05_frankastate">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -794,20 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/24_camera_wcs_realtime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16_zerotorques.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/issues_and_howto.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="636">
@@ -829,28 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1539179322402" expanded="true" signature="8251:8365" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dlrc_control/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="101" column="145" selection-start-line="101" selection-start-column="145" selection-end-line="101" selection-end-column="145" />
-          <folding>
-            <element signature="e#159#170#0" expanded="true" />
-            <marker date="1539189975628" expanded="true" signature="3552:4432" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/12_randomMovements.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -861,15 +852,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/git/sl/sl_panda/src/pyctl/pyctl_traj.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1105">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        <state relative-caret-position="349">
+          <caret line="342" column="58" selection-start-line="342" selection-start-column="54" selection-end-line="342" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/29_quaternionverify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/dlrc/lib/python3.6/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="317" column="34" selection-start-line="317" selection-start-column="34" selection-end-line="317" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/dlrc/lib/python3.6/site-packages/zmq/sugar/poll.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="973">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dlrc_control/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="301" column="44" selection-start-line="301" selection-start-column="44" selection-end-line="301" selection-end-column="44" />
+          <folding>
+            <element signature="e#159#170#0" expanded="true" />
+            <marker date="1539248953000" expanded="true" signature="3552:4432" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/30_obstacle_avoidance_robot_lidar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="158" column="48" lean-forward="true" selection-start-line="158" selection-start-column="48" selection-end-line="158" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4588">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/24_camera_wcs_realtime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/16_zerotorques.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <marker date="1539284112127" expanded="true" signature="8347:8461" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="31" column="81" lean-forward="true" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

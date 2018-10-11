@@ -7,7 +7,7 @@ from utils import *
 def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resolution, bufsize, points_in_buffer, colors_in_buffer, i, bound=1, box=None, detailed=False):
     '''assumes subplot axes to already exist'''
 
-    T0ee, _,_,_ = get_jointToCoordinates(thetas=joint)
+    T0ee, _,_,_,_ = get_jointToCoordinates(thetas=joint)
     T0cam = np.dot(T0ee, Teecamera)
     # K = np.array([[focal_length,0,principal_point[1]/ camera_resolution[1]],
     #              [0, focal_length, principal_point[0]/ camera_resolution[0]],
@@ -29,7 +29,7 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
         colors_in_buffer = point_colors[idx_boundingBox,:]/255
     else: # fixed amount of points each time
         points_in_buffer[i % bufsize, :,:] = wcs_points
-        colors_in_buffer[i % bufsize, :,:] = np.array(point_colors).reshape(-1,3)/255
+        colors_in_buffer[i % bufsize, :,:] = np.array(point_colors).reshape(-1,3)
 
     colors_in_buffer = colors_in_buffer.reshape(-1,3)
     if colors_in_buffer.shape[0] == 1: colors_in_buffer = np.squeeze(colors_in_buffer, axis=0)
@@ -150,7 +150,7 @@ if args.detail:
 
 # configuring plotting details, including a buffer
 bound = None # in meter
-boundingBox_min = [-0.4, -0.4, -0.025] # bounding box for camera visibility of itself
+boundingBox_min = None#[-0.4, -0.4, -0.025] # bounding box for camera visibility of itself
 boundingBox_max = [0.4, 0.4, 0.75]
 assert(bool(bound) + bool(boundingBox_min) < 2)
 bufsize = 1 # if boundingBox_min
