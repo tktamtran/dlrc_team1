@@ -22,7 +22,7 @@ def net_loss_values(net, files_data, in_batch_size, in_n_batches):
     nn_batches = []
     for e,file_data in enumerate(files_data): # epoch
         data = pd.read_pickle(directory_data + file_data)
-        data = data[['j0', 'j1', 'j2', 'j3', 'j4', 'j5', 'j6', 'co_x', 'co_y', 'co_z', 'co_w', 'ct_x', 'ct_y', 'ct_z', 'ct_w']]
+        data = data[['j1', 'j2', 'j3', 'j4', 'j5', 'j6', 'j7', 'co_x', 'co_y', 'co_z', 'co_w', 'ct_x', 'ct_y', 'ct_z', 'ct_w']]
         dataset = torch.from_numpy(data.values)
 
         if in_batch_size:

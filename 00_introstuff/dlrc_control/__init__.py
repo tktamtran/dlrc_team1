@@ -30,7 +30,7 @@ def initialize(addr_broker_ip="tcp://localhost:51468", realsense = False, lidar 
     return broker
 
 
-def set_new_pos(broker, new_pos, ctrl_mode, time_to_go, fnumber):
+def set_new_pos(broker, new_pos, ctrl_mode, time_to_go):
     # substitute for static counter (for the fnumber)
     if not hasattr(set_new_pos, "fnumber"):
         broker.register_signal("franka_target_pos", pab.MsgType.target_pos)
@@ -76,6 +76,74 @@ def random_joint_config():
             print(rand_config, 'after', i, 'attempts')
             i = 0
             break
+
+    # create random configs within the joint range and make sure that all joints stay above table
+    # take into account that the joint centers are some centimeters within the robot shell
+    return rand_config
+
+def random_joint_config_constrained(xlim = np.array([-0.8, 0.8]), ylim = np.array([-0.8, 0.8]), zlim = np.array([0.1, 1])):
+    """
+    this creates a new random joint configuration for the robot so that we can explore the joint space effectively
+    :param broker:      the broker to use
+    :param time_to_go:  the time allowed to go to the new position
+    """
+    # The joint limits according to https://frankaemika.github.io/docs/control_parameters.html are
+    xlim = sorted(xlim)
+    ylim = sorted(ylim)
+    zlim = sorted(zlim)
+    q_limits = np.array([[-2.8973, 2.8973],
+                         [-1.7628, 1.7628],
+                         [-2.8973, 2.8973],
+                         [-3.0718, -0.0698],
+                         [-2.8973, 2.8973],
+                         [-0.0175, 3.7525],
+                         [-2.8973, 2.8973]])
+    q_limits *= 0.97 # to avoid the absolute joint limits
+
+    i = 0
+    while True:  # only break from the while loop if a valid config was found
+        rand_config = [np.random.uniform(q_limits[idx, 0], q_limits[idx, 1]) for idx in range(7)]
+        # check if all joints (+ 10 centimeters for now) are within the limits
+        _, _, _, _, T_list = utils.get_jointToCoordinates(rand_config)
+        T_offsets = np.array([T[:3, 3] for T in T_list])
+        # print(T_offsets
+
+        # check if all joints are at least 10 cm apart from each other to avoid
+        # the self-collision reflex
+        # but do not take the directly nearest joint into account, as these
+        # have fixed distances anyway
+        T_distances = np.ones((T_offsets.shape[0], T_offsets.shape[0])) * np.inf
+        for i in range(T_offsets.shape[0]):
+            for j in range(T_offsets.shape[0]):
+                if i == j:
+                    # don't measure the distance to the joint itself
+                    continue
+                T_distances[i,j] = np.linalg.norm(T_offsets[i,:] - T_offsets[j,:])
+        print(T_distances)
+        # the relevant distances are stored in the lower triangular part that
+        # excludes the main diagonal and first off diagonal
+        T_dist = np.ones((T_offsets.shape[0], T_offsets.shape[0])) * np.inf
+        # lower triangular indices
+        tril_indices = np.tril_indices(T_distances.shape[0], -3)
+        T_dist[tril_indices] = T_distances[tril_indices]
+        print(T_dist)
+        print((T_dist > 0.1).all())
+
+
+        T_x = np.array([T[0] for T in T_offsets])
+        T_y = np.array([T[1] for T in T_offsets])
+        T_z = np.array([T[2] for T in T_offsets])
+        i += 1
+        # check if all joints are within the specified limits in that config
+        if (xlim[0] < T_x).all() and (T_x < xlim[1]).all():
+            # print('X ok')
+            if np.all(ylim[0] < T_y).all() and (T_y < ylim[1]).all():
+                # print('Y ok')
+                if np.all(zlim[0] < T_z).all() and (T_z < zlim[1]).all():
+                    # print('Z ok')
+                    # print(rand_config, 'after', i, 'attempts')
+                    i = 0
+                    break
 
     # create random configs within the joint range and make sure that all joints stay above table
     # take into account that the joint centers are some centimeters within the robot shell

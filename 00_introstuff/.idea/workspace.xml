@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52869ff9-51c5-4814-ab3a-658c1714ae48" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/29_quaternionverify.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/25_modifybatches.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/31_randomMovements_v2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py" beforeDir="false" afterPath="$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dlrc_control/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dlrc_control/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measurements/data_self_batchrt0.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01_networks/04_classificationresults.py" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/04_classificationresults.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../01_networks/05_hackyclassification.py" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/05_hackyclassification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_networks/05_pointcloudvis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/05_pointcloudvis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01_networks/07_exploredatabase.py" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/07_exploredatabase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../01_networks/Network00.py" beforeDir="false" afterPath="$PROJECT_DIR$/../01_networks/Network00.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,13 +33,14 @@
     <SUITE FILE_PATH="coverage/00_introstuff$21_pixeltransforms.coverage" NAME="21_pixeltransforms Coverage Results" MODIFIED="1537971125696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$11_recordcamera.coverage" NAME="11_recordcamera Coverage Results" MODIFIED="1537276147265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$03_continuousimg.coverage" NAME="03_continuousimg Coverage Results" MODIFIED="1538654714251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/00_introstuff$16_zerotorques.coverage" NAME="16_zerotorques Coverage Results" MODIFIED="1539278628021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/00_introstuff$16_zerotorques.coverage" NAME="16_zerotorques Coverage Results" MODIFIED="1539339615695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$25_wcs_cameraAndLidar.coverage" NAME="25_wcs_cameraAndLidar Coverage Results" MODIFIED="1538462133978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1537289748378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dlrc_control" />
     <SUITE FILE_PATH="coverage/00_introstuff$20_lidar_regression.coverage" NAME="20_lidar_regression Coverage Results" MODIFIED="1537962454726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/00_introstuff$28_obstacle_avoidance_robot_lidar_orientation.coverage" NAME="28_obstacle_avoidance_robot_lidar_orientation Coverage Results" MODIFIED="1539270626532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/00_introstuff$28_obstacle_avoidance_robot_lidar_orientation.coverage" NAME="28_obstacle_avoidance_robot_lidar_orientation Coverage Results" MODIFIED="1539339035213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$09_recordlidars.coverage" NAME="09_recordlidars Coverage Results" MODIFIED="1537361487060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$17_camcalibration.coverage" NAME="17_camcalibration Coverage Results" MODIFIED="1537812042937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/00_introstuff$31_randomMovements_v2.coverage" NAME="31_randomMovements_v2 Coverage Results" MODIFIED="1539355460523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$08_1_recordsensors.coverage" NAME="08.1_recordsensors Coverage Results" MODIFIED="1537784593072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/00_introstuff$00_oneclass.coverage" NAME="00_oneclass Coverage Results" MODIFIED="1537537767604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../01_networks" />
     <SUITE FILE_PATH="coverage/00_introstuff$19_lidarvisualization.coverage" NAME="19_lidarvisualization Coverage Results" MODIFIED="1537876713181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -77,37 +86,39 @@
           <entry key="05_frankastate" value="10" />
           <entry key="argparse" value="2" />
           <entry key="calibration_values" value="3" />
-          <entry key="h" value="5" />
+          <entry key="h" value="6" />
           <entry key="ipynb" value="6" />
-          <entry key="py" value="195" />
+          <entry key="py" value="205" />
           <entry key="sympy shell transformation matrices" value="1" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C++" value="5" />
+          <entry key="C++" value="6" />
           <entry key="IPNB" value="6" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="206" />
+          <entry key="Python" value="216" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="05_DH-transform" value="123" />
           <entry key="05_frankastate" value="1252" />
-          <entry key="Python Console" value="1856" />
+          <entry key="Python Console" value="2035" />
           <entry key="calibration_values" value="1111" />
-          <entry key="dummy" value="80" />
-          <entry key="py" value="54111" />
+          <entry key="dummy" value="85" />
+          <entry key="h" value="26" />
+          <entry key="py" value="58542" />
           <entry key="sympy shell transformation matrices" value="544" />
           <entry key="txt" value="3396" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="5131" />
-          <entry key="Python" value="57342" />
+          <entry key="C++" value="26" />
+          <entry key="PLAIN_TEXT" value="5136" />
+          <entry key="Python" value="61952" />
         </counts>
       </usages-collector>
     </session>
@@ -117,29 +128,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="31" column="81" lean-forward="true" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
+            <state relative-caret-position="2137">
+              <caret line="173" column="29" lean-forward="true" selection-start-line="173" selection-start-column="29" selection-end-line="173" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/git/sl/sl_panda/src/pyctl/pyctl_traj.h">
+        <entry file="file://$PROJECT_DIR$/25_modifybatches.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="342" column="58" selection-start-line="342" selection-start-column="54" selection-end-line="342" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dlrc_control/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="301" column="44" selection-start-line="301" selection-start-column="44" selection-end-line="301" selection-end-column="44" />
+            <state relative-caret-position="862">
+              <caret line="280" column="23" selection-start-line="280" selection-start-column="23" selection-end-line="280" selection-end-column="23" />
               <folding>
-                <element signature="e#159#170#0" expanded="true" />
-                <marker date="1539248953000" expanded="true" signature="3552:4432" ph="..." />
+                <marker date="1539358212732" expanded="true" signature="53:54" ph="..." />
               </folding>
             </state>
           </provider>
@@ -148,29 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4588">
-              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.virtualenvs/dlrc/lib/python3.6/site-packages/zmq/sugar/poll.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="973">
-              <caret line="100" selection-start-line="100" selection-end-line="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/29_quaternionverify.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="344">
+              <caret line="173" column="33" selection-start-line="173" selection-start-column="27" selection-end-line="173" selection-end-column="33" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -181,12 +161,71 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
+            <state relative-caret-position="344">
+              <caret line="123" selection-start-line="123" selection-end-line="123" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-                <marker date="1539284112127" expanded="true" signature="8347:8461" ph="..." />
+                <marker date="1539357228827" expanded="true" signature="8319:8433" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/12_randomMovements.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1139">
+              <caret line="79" column="12" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
+              <folding>
+                <element signature="e#53#80#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/31_randomMovements_v2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#73#861#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/08.1_recordsensors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="990">
+              <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="49" />
+              <folding>
+                <element signature="e#198#213#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dlrc_control/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="886">
+              <caret line="152" column="42" selection-start-line="152" selection-start-column="42" selection-end-line="152" selection-end-column="42" />
+              <folding>
+                <element signature="e#159#170#0" expanded="true" />
+                <marker date="1539354443617" expanded="true" signature="6809:7689" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="607">
+              <caret line="1657" column="37" selection-start-line="1657" selection-start-column="37" selection-end-line="1657" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -211,10 +250,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>realbot</find>
-      <find>col1</find>
-      <find>col2</find>
-      <find>update</find>
       <find>quive</find>
       <find>quiver</find>
       <find>principal_point</find>
@@ -238,9 +273,13 @@
       <find>6</find>
       <find>target</find>
       <find>sigma_ddx_ee</find>
+      <find>quat_</find>
       <find>3</find>
       <find>quat</find>
+      <find>format</find>
+      <find>velcit</find>
       <find>skip</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>jpg</replace>
@@ -256,10 +295,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/05_DH-transform" />
-        <option value="$PROJECT_DIR$/00_recordsensors.py" />
-        <option value="$PROJECT_DIR$/09_recordsensors.py" />
-        <option value="$PROJECT_DIR$/08_createreadingdatabase.py" />
         <option value="$PROJECT_DIR$/02_realsenseimg.py" />
         <option value="$PROJECT_DIR$/sympy shell transformation matrices" />
         <option value="$PROJECT_DIR$/00_oneclass.py" />
@@ -300,13 +335,17 @@
         <option value="$PROJECT_DIR$/24_camera_wcs_realtime.py" />
         <option value="$PROJECT_DIR$/04_robotcontrol.py" />
         <option value="$PROJECT_DIR$/12_randomMovements.py" />
-        <option value="$PROJECT_DIR$/dlrc_control/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/30_obstacle_avoidance_robot_lidar.py" />
         <option value="$PROJECT_DIR$/29_quaternionverify.py" />
         <option value="$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py" />
-        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$USER_HOME$/git/sl/sl_panda/src/pyctl/pyctl_traj.h" />
+        <option value="$PROJECT_DIR$/31_randomMovementsTake2.py" />
+        <option value="$PROJECT_DIR$/31_randomMovements_v2.py" />
+        <option value="$PROJECT_DIR$/dlrc_control/__init__.py" />
         <option value="$PROJECT_DIR$/25_wcs_cameraAndLidar.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/25_modifybatches.py" />
       </list>
     </option>
   </component>
@@ -317,8 +356,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2147" />
-    <option name="y" value="27" />
+    <option name="x" value="2261" />
+    <option name="y" value="119" />
     <option name="width" value="2435" />
     <option name="height" value="1554" />
   </component>
@@ -375,29 +414,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.16_zerotorques">
-    <configuration name="03_continuousimg" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="00_introstuff" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/03_continuousimg.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.31_randomMovements_v2">
     <configuration name="16_zerotorques" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="00_introstuff" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -486,20 +503,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="31_randomMovements_v2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="00_introstuff" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/31_randomMovements_v2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.16_zerotorques" />
       <item itemvalue="Python.26_basic_collision_avoidance" />
-      <item itemvalue="Python.03_continuousimg" />
       <item itemvalue="Python.29_quaternionverify" />
       <item itemvalue="Python.28_obstacle_avoidance_robot_lidar_orientation" />
+      <item itemvalue="Python.31_randomMovements_v2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.31_randomMovements_v2" />
         <item itemvalue="Python.16_zerotorques" />
         <item itemvalue="Python.28_obstacle_avoidance_robot_lidar_orientation" />
         <item itemvalue="Python.29_quaternionverify" />
         <item itemvalue="Python.26_basic_collision_avoidance" />
-        <item itemvalue="Python.03_continuousimg" />
       </list>
     </recent_temporary>
   </component>
@@ -528,7 +567,7 @@
   <component name="ToolWindowManager">
     <frame x="1967" y="25" width="2513" height="1575" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09566275" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14511552" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -539,7 +578,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49972022" weight="0.12470215" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4989496" weight="0.32803813" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4989496" weight="0.3274648" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50630254" side_tool="true" weight="0.3444692" />
       <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49369746" visible="true" weight="0.21549296" />
@@ -547,7 +586,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.14754763" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.26509932" />
       <window_info anchor="right" id="Database" order="4" weight="0.32966024" />
     </layout>
     <layout-to-restore>
@@ -591,28 +630,26 @@
       </default-breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>T_offsets</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>T_offsets.shape</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>T</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/05_frankastate">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/11_recordcamera.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/dlrc/lib/python3.6/site-packages/zmq/sugar/socket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
-          <caret line="693" selection-start-line="693" selection-end-line="693" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/13_cameradata.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -748,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/08.1_recordsensors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2074">
-          <caret line="128" column="57" selection-start-line="128" selection-start-column="57" selection-end-line="128" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/20_lidar_regression.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -842,75 +872,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/12_randomMovements.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="79" column="12" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
-          <folding>
-            <element signature="e#53#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/git/sl/sl_panda/src/pyctl/pyctl_traj.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="342" column="58" selection-start-line="342" selection-start-column="54" selection-end-line="342" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/29_quaternionverify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/dlrc/lib/python3.6/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="633">
           <caret line="317" column="34" selection-start-line="317" selection-start-column="34" selection-end-line="317" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/dlrc/lib/python3.6/site-packages/zmq/sugar/poll.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="973">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dlrc_control/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="301" column="44" selection-start-line="301" selection-start-column="44" selection-end-line="301" selection-end-column="44" />
-          <folding>
-            <element signature="e#159#170#0" expanded="true" />
-            <marker date="1539248953000" expanded="true" signature="3552:4432" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/30_obstacle_avoidance_robot_lidar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="158" column="48" lean-forward="true" selection-start-line="158" selection-start-column="48" selection-end-line="158" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4588">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -921,6 +889,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/29_quaternionverify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/dlrc/lib/python3.6/site-packages/zmq/sugar/poll.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/30_obstacle_avoidance_robot_lidar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="172" column="74" selection-start-line="172" selection-start-column="60" selection-end-line="172" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/git/sl/sl_panda/src/pyctl/pyctl_traj.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="485" column="39" selection-start-line="485" selection-start-column="39" selection-end-line="485" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/28_obstacle_avoidance_robot_lidar_orientation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="173" column="33" selection-start-line="173" selection-start-column="27" selection-end-line="173" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12_randomMovements.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="79" column="12" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
+          <folding>
+            <element signature="e#53#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="1657" column="37" selection-start-line="1657" selection-start-column="37" selection-end-line="1657" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/08.1_recordsensors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="49" />
+          <folding>
+            <element signature="e#198#213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/16_zerotorques.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -928,21 +964,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dlrc_control/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="886">
+          <caret line="152" column="42" selection-start-line="152" selection-start-column="42" selection-end-line="152" selection-end-column="42" />
+          <folding>
+            <element signature="e#159#170#0" expanded="true" />
+            <marker date="1539354443617" expanded="true" signature="6809:7689" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/31_randomMovements_v2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#73#861#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="123" column="20" selection-start-line="123" selection-start-column="20" selection-end-line="123" selection-end-column="20" />
+        <state relative-caret-position="344">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
-            <marker date="1539284112127" expanded="true" signature="8347:8461" ph="..." />
+            <marker date="1539357228827" expanded="true" signature="8319:8433" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/25_modifybatches.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="862">
+          <caret line="280" column="23" selection-start-line="280" selection-start-column="23" selection-end-line="280" selection-end-column="23" />
+          <folding>
+            <marker date="1539358212732" expanded="true" signature="53:54" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/25_wcs_cameraAndLidar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="31" column="81" lean-forward="true" selection-start-line="31" selection-start-column="81" selection-end-line="31" selection-end-column="81" />
+        <state relative-caret-position="2137">
+          <caret line="173" column="29" lean-forward="true" selection-start-line="173" selection-start-column="29" selection-end-line="173" selection-end-column="29" />
         </state>
       </provider>
     </entry>

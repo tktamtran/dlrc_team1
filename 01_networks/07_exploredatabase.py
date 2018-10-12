@@ -10,7 +10,7 @@ database = pd.read_pickle(directory_data + 'datawcs_robot_batches0020.pkl')
 # concatenate the batches of data
 if False:
     directory_data = 'data_robot/'
-    files_data = [f for f in listdir(directory_data) if 'datawcs_robot' in f]
+    files_data = [f for f in listdir(directory_data) if 'datawcs_robotnobase' in f]
 
     data_all = pd.read_pickle(directory_data + files_data[0])
 
@@ -20,7 +20,7 @@ if False:
     print(data_all.shape)
     input('..')
 
-    data_all.to_pickle(directory_data + 'datawcs_robot_batches0020.pkl')
+    data_all.to_pickle(directory_data + 'datawcs_robotnobase_batches0020.pkl')
 
 
 

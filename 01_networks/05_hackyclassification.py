@@ -41,6 +41,8 @@ def hacky_clf_linear(points_positive, points_test):
 
 from scipy.spatial import Delaunay
 def hacky_clf_hull(points_positive, points_test):
+    # points_positive[:,:2] *= 0.9 # padding / expansion of hull
+    # points_positive[:,2] -= 0.05
     if not isinstance(points_positive, Delaunay): points_positive = Delaunay(points_positive)
     points_pred = points_positive.find_simplex(points_test)>=0
     return points_pred
@@ -53,13 +55,13 @@ def get_points_at_joint(database, query_joint):
     db_matches = (np.abs(database['j1'].values - query_joint[0]) < 0.5) * \
                  (np.abs(database['j2'].values - query_joint[1]) < 0.5) * \
                  (np.abs(database['j3'].values - query_joint[2]) < 0.5) * \
-                 (np.abs(database['j4'].values - query_joint[3]) < 0.5) * \
-                 (np.abs(database['j5'].values - query_joint[4]) < 0.5) * \
-                 (np.abs(database['j6'].values - query_joint[5]) < 0.5) * \
-                 (np.abs(database['j7'].values - query_joint[6]) < 0.5)
+                 (np.abs(database['j4'].values - query_joint[3]) < 0.5)
+                 # (np.abs(database['j5'].values - query_joint[4]) < 0.5) * \
+                 # (np.abs(database['j6'].values - query_joint[5]) < 0.5) * \
+                 # (np.abs(database['j7'].values - query_joint[6]) < 0.5)
     idx_matches = np.argwhere(db_matches).squeeze(axis=1)
     print('n_wcs_matches', idx_matches.shape)
-    print('n_joint_matches')  # TODO
+    #print('n_joint_matches')  # TODO
 
     cols_wcp = ['ct_x', 'ct_y', 'ct_z']
     wcp_joint = database.iloc[idx_matches.tolist()][cols_wcp].values
@@ -91,6 +93,7 @@ def clf_and_plot(rgb, depth, joint, Teecamera, database, min_positive, frame_num
         # generate predictions
         points_pred = hacky_clf_hull(points_positive=wcp_joint, points_test=wcs_points)
         idx_pos = np.argwhere(points_pred).squeeze(axis=1)
+        print('positive points', len(idx_pos), 'negative points', len(points_pred)-len(idx_pos))
 
         # TODO incorporate rgb colors
         ax1.scatter(wcs_points[idx_pos, 0], wcs_points[idx_pos, 1], wcs_points[idx_pos, 2], s=15, c=rgb_colors[idx_pos,:], alpha=1, edgecolors='green', linewidths=0.3)
@@ -116,7 +119,7 @@ if args.mode_realtime:
     broker = pab.broker("tcp://localhost:51468")
     broker.request_signal("franka_state", pab.MsgType.franka_state)
     broker.request_signal("realsense_images", pab.MsgType.realsense_image)
-    n = 50 # limit on #frames for real time
+    n = 500 # limit on #frames for real time
 
 if args.mode_dataset:
     filename = "/home/dlrc1/Desktop/00_introstuff/measurements/dataorig_robot_batch_rt20.pkl"
@@ -150,7 +153,7 @@ while (i<n):
         depth = data.iloc[i]['realsense_depthdata']
 
     # processing one frame at a time
-    clf_and_plot(rgb, depth, joint, Teecamera, database, min_positive=100, frame_number=i)
+    clf_and_plot(rgb, depth, joint, Teecamera, database, min_positive=50, frame_number=i)
     time.sleep(0.05)
     fig.canvas.draw()
     plt.pause(0.05)

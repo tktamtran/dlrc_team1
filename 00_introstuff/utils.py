@@ -121,7 +121,6 @@ def img_to_ccs(depth_image, principal_point, camera_resolution, skip, rgb_image)
     ccs_points = np.array(ccs_points)
     rgb_colors = np.array(rgb_colors).squeeze(axis=1)
     rgb_colors = rgb_colors.reshape(-1,3)/255
-    print(rgb_colors.shape)
 
     return ccs_points, rgb_colors, pp_ccs_point
 

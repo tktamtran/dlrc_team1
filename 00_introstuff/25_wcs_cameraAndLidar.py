@@ -16,17 +16,24 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
     ccs_points, point_colors, ccs_point_pp = img_to_ccs(depth, principal_point, camera_resolution, skip=13, rgb_image=rgb)
     wcs_points = np.array([np.dot(T0cam, ccs_point) for ccs_point in ccs_points])
     if bound and (not boundingBox_min): wcs_points = np.array([p*bound/max(abs(p)) if max(abs(p)) > bound else p for p in wcs_points])
-    #if boundingBox_min: 
+    #if boundingBox_min:
     #    wcs_points = np.array([p for p in wcs_points if ((p[:3]<boundingBox_max).all() & (p[:3]>boundingBox_min).all())])
 
     if boundingBox_min: # then cannot handle collecting points for buffer, since arrays of varying size
+
+        # customize min_z value of bounding box, as we don't want table as part of robot class
+        z_points = wcs_points[:,2]
+        idx_z0 = np.argwhere((z_points > -0.05) * (z_points < 0.05))
+        boundingBox_min[2] = np.median(z_points[idx_z0]) + 0.035
+        print('boundingBox_min', boundingBox_min)
+
         points_in_buffer = np.array([]).reshape(0,4)
         colors_in_buffer = np.array([]).reshape(0,3)
         mask_boundingBox = (wcs_points[:,:3] > np.tile(boundingBox_min, (wcs_points.shape[0],1))) * (wcs_points[:,:3] < np.tile(boundingBox_max, (wcs_points.shape[0],1)))
         idx_boundingBox = [i for i,m in enumerate(mask_boundingBox) if m.all()] # if not, if want outside of BB
         wcs_points = wcs_points[idx_boundingBox,:]
         points_in_buffer = np.expand_dims(wcs_points, axis=0)
-        colors_in_buffer = point_colors[idx_boundingBox,:]/255
+        colors_in_buffer = point_colors[idx_boundingBox,:]
     else: # fixed amount of points each time
         points_in_buffer[i % bufsize, :,:] = wcs_points
         colors_in_buffer[i % bufsize, :,:] = np.array(point_colors).reshape(-1,3)
@@ -40,9 +47,12 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
     ax1.scatter(points_in_buffer[:,:,0], points_in_buffer[:,:,1], points_in_buffer[:,:,2], s=50, c=colors_in_buffer, alpha=0.5)
     colors_in_buffer = colors_in_buffer.reshape((bufsize, -1, 3))
     if boundingBox_min:
-        ax1.set_xlim(boundingBox_min[0],boundingBox_max[0])
-        ax1.set_ylim(boundingBox_min[1],boundingBox_max[1])
-        ax1.set_zlim(boundingBox_min[2],boundingBox_max[2])
+        # ax1.set_xlim(boundingBox_min[0],boundingBox_max[0])
+        # ax1.set_ylim(boundingBox_min[1],boundingBox_max[1])
+        # ax1.set_zlim(boundingBox_min[2],boundingBox_max[2])
+        ax1.set_xlim(-1,1)
+        ax1.set_ylim(-1,1)
+        ax1.set_zlim(-1,1)
     else:
         ax1.set_xlim(-1,1)
         ax1.set_ylim(-1,1)
@@ -80,6 +90,8 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
 
         ax6.clear()
         ax6.hist(list(zip(*wcs_points))[2], bins=80)
+        ax6.axvline(x=boundingBox_min[2], c='green')
+        ax6.set_xlim(-0.2, 0.7)
         ax6.set_title('z values in wcs')
 
         ax7.clear()
@@ -118,12 +130,12 @@ if args.mode_realtime:
     broker.request_signal("franka_state", pab.MsgType.franka_state)
     broker.request_signal("realsense_images", pab.MsgType.realsense_image)
     if args.lidar: broker.request_signal("franka_lidar", pab.MsgType.franka_lidar)
-    n = 50 # limit on how long real time can run
-    batch_number = '_tmp'
+    n = 200 # limit on how long real time can run
+    batch_number = '_rt21'
 
 if args.mode_dataset:
     #filename = "/home/dlrc1/measurements/20181002T0821450000.pkl"
-    filename = "measurements/dataorig_robot_batch_rt20.pkl"
+    filename = "measurements/dataorig_robot_batch_rt00.pkl"
     data = pd.DataFrame(pd.read_pickle(filename))
     data = data.rename(columns={"realsense_depth": "realsense_depthdata"})
     data.reset_index(inplace=True)
@@ -150,7 +162,7 @@ if args.detail:
 
 # configuring plotting details, including a buffer
 bound = None # in meter
-boundingBox_min = None#[-0.4, -0.4, -0.025] # bounding box for camera visibility of itself
+boundingBox_min = [-0.4, -0.4, -0.025] # bounding box for camera visibility of itself
 boundingBox_max = [0.4, 0.4, 0.75]
 assert(bool(bound) + bool(boundingBox_min) < 2)
 bufsize = 1 # if boundingBox_min
@@ -204,7 +216,7 @@ while True:
         for l,v in transformation_values.items():
             if l != 'camera':
                 lidar_idx = int(l[-1:])
-                _, _, T_b_j, _ = get_jointToCoordinates(joint, untilJoint=v['joint_number'])
+                _, _, T_b_j, _,_ = get_jointToCoordinates(joint, untilJoint=v['joint_number'])
                 lidar_info[l]['T_b_l'] = np.dot(T_b_j, v['transformation_matrix'])
                 lidar_info[l]['wcp_origin'] = np.dot(lidar_info[l]['T_b_l'], np.array([0, 0, 0, 1]))
                 lidar_info[l]['wcp_target'] = np.dot(lidar_info[l]['T_b_l'], np.array([0,0, lidar_readings[lidar_idx], 1]))
@@ -232,7 +244,7 @@ while True:
 
     fig.canvas.draw()
     plt.pause(0.05)
-    time.sleep(0.05)
+    #time.sleep(0.05)
     plt.show()
 
     i+=1
@@ -242,8 +254,8 @@ while True:
 joint_names = ['j'+str(j) for j in range(7)]
 data_collect_wcs = pd.DataFrame(data_collect_wcs.reshape(-1,15), columns = joint_names + ['co_x', 'co_y', 'co_z', 'co_w', 'ct_x', 'ct_y', 'ct_z', 'ct_w'])
 data_collect_real = pd.DataFrame(data_collect_real)
-picklename = 'measurements/datawcs_nonrobot_batch' + str(batch_number) + '_' + str(data_collect_wcs.shape[0]) + '.pkl'
-realname = 'measurements/datawcs_nonrobot_batch' + str(batch_number) + '.pkl'
+picklename = 'measurements/datawcs_robot_batch' + str(batch_number) + '_' + str(data_collect_wcs.shape[0]) + '.pkl'
+realname = 'measurements/datawcs_robot_batch' + str(batch_number) + '.pkl'
 data_collect_wcs.to_pickle(picklename)
 if args.mode_realtime: data_collect_real.to_pickle(picklename.replace('wcs', 'orig'))
 print('data pickled as', picklename)
