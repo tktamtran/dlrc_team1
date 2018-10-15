@@ -85,6 +85,8 @@ def img_to_ccs(depth_image, principal_point, camera_resolution, skip, rgb_image)
     pp_ccs_point = []
     ccs_points = []
     rgb_colors = []
+    pixel_coords = []
+    depth_flat = []
     for x in np.arange(1,camera_resolution[1], skip):
         for y in np.arange(0,camera_resolution[0], skip):
             a = np.sin((x-principal_point[1])/camera_resolution[1] * 91.2 * np.pi/180) /1.45
@@ -97,32 +99,32 @@ def img_to_ccs(depth_image, principal_point, camera_resolution, skip, rgb_image)
             #b = (y - principal_point[0]) / camera_resolution[0]
             ccs_point = depth_image[y,x] * np.array([a,b,1/1.015,0]) #1.035
             ccs_point[-1] = 1
-            # DEBUG CAMERA ARROWS
-            if y == principal_point[0] and x == principal_point[1]:
-                pp_ccs_point = ccs_point
-            # END DEBUG CAMERA ARROW
+            # # DEBUG CAMERA ARROWS
+            # if y == principal_point[0] and x == principal_point[1]:
+            #     pp_ccs_point = ccs_point
+            # # END DEBUG CAMERA ARROW
             ccs_points.append(ccs_point)
 
             rgb_colors.append([rgb_image[y*2,x*2]]) # rgb image is double the resolution of depth
-
-
+            pixel_coords.append([y,x])
+            depth_flat.append(depth_image[y,x])
 
     # TODO: reincorporate this ugly hack into the for loop (calculate depth for
     #       principal point) so the principal point is always part of the points
-    if not pp_ccs_point: # can't incorporate as if x=pp1 and y=pp0 in above loop, bc it skips over some x values
-        x = principal_point[1]
-        y = principal_point[0]
-        a = np.sin((x - principal_point[1]) / camera_resolution[1] * 91.2 * np.pi / 180) / 1.45
-        b = np.sin((y - principal_point[0]) / camera_resolution[0] * 65.5 * np.pi / 180) / 1.45
-        ccs_point = depth_image[y, x] * np.array([a, b, 1 / 1.015, 0])  # 1.035
-        ccs_point[-1] = 1
-        pp_ccs_point = ccs_point
+    #if not pp_ccs_point: # can't incorporate as if x=pp1 and y=pp0 in above loop, bc it skips over some x values
+    x = principal_point[1]
+    y = principal_point[0]
+    a = np.sin((x - principal_point[1]) / camera_resolution[1] * 91.2 * np.pi / 180) / 1.45
+    b = np.sin((y - principal_point[0]) / camera_resolution[0] * 65.5 * np.pi / 180) / 1.45
+    ccs_point = depth_image[y, x] * np.array([a, b, 1 / 1.015, 0])  # 1.035
+    ccs_point[-1] = 1
+    pp_ccs_point = ccs_point
 
     ccs_points = np.array(ccs_points)
     rgb_colors = np.array(rgb_colors).squeeze(axis=1)
     rgb_colors = rgb_colors.reshape(-1,3)/255
 
-    return ccs_points, rgb_colors, pp_ccs_point
+    return ccs_points, rgb_colors, pp_ccs_point, pixel_coords, depth_flat
 
 
 def grab_image(broker=None):

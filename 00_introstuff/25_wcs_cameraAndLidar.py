@@ -75,7 +75,7 @@ def redraw_camera(Teecamera, joint, depth, rgb, principal_point, camera_resoluti
     ax2.set_xlim(ax2.get_xlim()[::-1])
 
     ax3.clear()
-    ax3.imshow(rgb)
+    ax3.imshow(rgb) #[::20, ::20]
     ax3.set_xlim(ax3.get_xlim()[::-1])
     ax3.set_ylim(ax3.get_ylim()[::-1])
 

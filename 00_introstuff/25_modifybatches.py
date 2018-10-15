@@ -278,7 +278,6 @@ assert (args.mode_dataset == 1)
 
 
 batches = ['_rt0'+str(b) for b in range(10)] + ['_rt1'+str(b) for b in range(10)] + ['_rt20']
-batches = [batches[-1]]
 print(batches)
 input('..')
 for b in batches:
